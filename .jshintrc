@@ -11,7 +11,7 @@
   "indent": 2,
   "latedef": true,
   "newcap": true,
-  "noarg": true,
+  "noarg": false,
   "quotmark": "single",
   "regexp": true,
   "undef": true,
@@ -20,7 +20,6 @@
   "trailing": true,
   "smarttabs": true,
   "laxcomma": true,
-  "globals": {
-    "angular": true
-  }
+  "unused": false,
+  "white": false
 }

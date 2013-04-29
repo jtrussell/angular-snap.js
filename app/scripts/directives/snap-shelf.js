@@ -1,10 +1,12 @@
+/*global angular */
+
 'use strict';
 
 angular.module('demo')
-  .directive('snapDrawer', function () {
+  .directive('snapShelf', function () {
     return {
       template: [
-        '<div class="ngSnap-drawer left">',
+        '<div class="ngSnap-shelf">',
           '<div ng-transclude></div>',
         '</div>'
       ].join(''),

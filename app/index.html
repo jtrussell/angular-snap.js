@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -25,20 +24,23 @@
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div snap-drawers>
-      <div snap-drawer>
+    <div snap-shelves>
+      <div id="shelf-1" snap-shelf>
+        <h1>Hello There</h1>
         <p>Navigation pane(s!) go here</p>
       </div>
     </div>
 
     <!-- Add your site or application content here -->
-    <div snap-content>
+    <div id="content" snap-content>
       <div class="hero-unit">
         <h1>Oh Boy!</h1>
         <p>You now have</p>
         <ul>
+          <li><a href="http://angularjs.org/">AngularJS</a></li>
           <li><a href="https://github.com/jakiestfu/Snap.js">Snap.js</a></li>
         </ul>
+        <p>Drag me &#8680;</p>
       </div>
     </div>
 
@@ -48,9 +50,9 @@
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/directives/snap-drawers.js"></script>
+    <script src="scripts/directives/snap-shelves.js"></script>
     <script src="scripts/directives/snap-content.js"></script>
-    <script src="scripts/directives/snap-drawer.js"></script>
+    <script src="scripts/directives/snap-shelf.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
