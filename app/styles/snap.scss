@@ -2,11 +2,8 @@
   height: 100%;
 }
 
-@mixin stretch() {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+@mixin wide() {
+  width: 100%;
 }
 
 @mixin absolute() {
@@ -38,49 +35,27 @@
           transform: translate3d($x, $y, $z);
 }
 
+@mixin smooth-scroll() {
+  overflow: auto;
+  @include transition(top .2s linear);
+  @include transition(bottom .2s linear);
+  @include overflow-scrolling(touch);
+}
+
 .ngSnap {
-  //@include relative();
-  @include tall();
-
-  &.ngSnap-shelves-wrapper {
-    @include absolute();
-  }
-
-  &.ngSnap-content-wrapper {
-    @include relative();
-  }
-
-  .ngSnap-content,
-  .ngSnap-shelves,
-  .ngSnap-shelves > div, // [todo] Is there a beter way to get at this .ng-scope div? [/todo]
+  &.ngSnap-content,
+  &.ngSnap-shelves,
   .ngSnap-shelf {
+    @include absolute();
+    @include wide();
     @include tall();
   }
 
-  .ngSnap-content, .ngSnap-shelves {
-    @include stretch();
-  }
-
-  .ngSnap-content {
-    z-index: 3;
-    background-color: #fff;
-    @include translate3d(0, 0, 0);
-  }
-
   .ngSnap-shelf {
-    z-index: 2;
-    overflow: auto;
-    width: 256px; // don't hardcode this
-
-    @include overflow-scrolling(touch);
-
-    &.left {
-      left: 0;
-    }
+    @include smooth-scroll();
 
     &.right {
       right: 0;
     }
   }
 }
-

@@ -7,12 +7,9 @@ angular.module('demo')
     return {
       restrict: 'A',
       transclude: true,
-      link: function postLink(scope, element, attrs) {
-        //element.text('this is the ngSnap directive');
-      },
       template: [
-        '<div class="ngSnap ngSnap-shelves-wrapper">',
-          '<div class="ngSnap-shelves" ng-transclude></div>',
+        '<div class="ngSnap ngSnap-shelves">',
+          '<div ng-transclude></div>',
         '</div>',
       ].join('')
     };
