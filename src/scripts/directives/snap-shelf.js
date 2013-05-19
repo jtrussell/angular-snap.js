@@ -1,9 +1,8 @@
 /*global angular */
 
-'use strict';
-
-angular.module('demo')
+angular.module('snap')
   .directive('snapShelf', function () {
+    'use strict';
     return {
       template: [
         '<div class="ngSnap-shelf left">',

@@ -1,9 +1,8 @@
 /*global angular, Snap */
 
-'use strict';
-
-angular.module('demo')
+angular.module('snap')
   .directive('snapContent', function () {
+    'use strict';
     return {
       template: [
         '<div class="ngSnap ngSnap-content">',

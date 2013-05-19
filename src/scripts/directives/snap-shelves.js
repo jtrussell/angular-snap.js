@@ -1,16 +1,15 @@
 /*global angular */
 
-'use strict';
-
-angular.module('demo')
+angular.module('snap')
   .directive('snapShelves', function () {
+    'use strict';
     return {
       restrict: 'A',
       transclude: true,
       template: [
         '<div class="ngSnap ngSnap-shelves">',
           '<div ng-transclude></div>',
-        '</div>',
+        '</div>'
       ].join('')
     };
   });

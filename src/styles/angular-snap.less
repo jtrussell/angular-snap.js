@@ -1,0 +1,62 @@
+.tall() {
+  height: 100%;
+}
+
+.wide() {
+  width: 100%;
+}
+
+.absolute() {
+  position: absolute;
+}
+
+.relative() {
+  position: relative;
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+     -moz-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
+}
+
+.overflow-scrolling(@scrolling) {
+  -webkit-overflow-scrolling: @scrolling;
+     -moz-overflow-scrolling: @scrolling;
+       -o-overflow-scrolling: @scrolling;
+          overflow-scrolling: @scrolling;
+}
+
+.translate3d(@x, @y, @z) {
+  -webkit-transform: translate3d(@x, @y, @z);
+     -moz-transform: translate3d(@x, @y, @z);
+       -o-transform: translate3d(@x, @y, @z);
+          transform: translate3d(@x, @y, @z);
+}
+
+.smooth-scroll() {
+  overflow: auto;
+  .transition(top .2s linear);
+  .transition(bottom .2s linear);
+  .overflow-scrolling(touch);
+}
+
+.ngSnap {
+  &.ngSnap-content,
+  &.ngSnap-shelves,
+  .ngSnap-shelf {
+    .absolute;
+    .wide;
+    .tall;
+  }
+
+  .ngSnap-shelf {
+    .smooth-scroll;
+
+    &.right {
+      right: 0;
+    }
+  }
+}
+
