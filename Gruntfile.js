@@ -12,7 +12,9 @@ module.exports = function(grunt) {
         'src/**/*.js'
       ],
       tasks: [
-        'jshint'
+        'jshint',
+        'concat',
+        'uglify'
         //'test'
       ]
     },
@@ -31,12 +33,12 @@ module.exports = function(grunt) {
           yuicompress: true
         },
         files: {
-          'angular-snap.min.css': 'src/styles/angular-snap.less'
+          'dist/angular-snap.min.css': 'src/styles/angular-snap.less'
         }
       },
       debug: {
         files: {
-          'angular-snap.css': 'src/styles/angular-snap.less'
+          'dist/angular-snap.css': 'src/styles/angular-snap.less'
         }
       }
     },
@@ -50,14 +52,14 @@ module.exports = function(grunt) {
           'src/scripts/*.js',
           'src/scripts/*/*.js'
         ],
-        dest: 'angular-snap.js'
+        dest: 'dist/angular-snap.js'
       }
     },
 
     uglify: {
       production: {
         files: {
-          'angular-snap.min.js': 'angular-snap.js'
+          'dist/angular-snap.min.js': 'dist/angular-snap.js'
         }
       }
     }
