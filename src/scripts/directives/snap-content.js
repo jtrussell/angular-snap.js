@@ -5,14 +5,16 @@ angular.module('snap')
     'use strict';
     return {
       template: '<div class="ngSnap ngSnap-content" ng-transclude></div>',
-      restrict: 'A',
       transclude: true,
       link: function postLink(scope, iElement, iAttrs) {
 
-        // -----------------------------------------------------
-        // If we have jQuery find the shelves and set the max and min positions
-        // accordingly
-        // -----------------------------------------------------
+        // Find the shelves and set `minPosition`/`maxPosition` if they have
+        // non-default widths
+        // ...
+
+        // Do we have a just a single left/right shelf? Disable the other side
+        // ...
+
         var snapOptions = {
           element: iElement[0]
         };
