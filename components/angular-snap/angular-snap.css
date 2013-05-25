@@ -2,8 +2,11 @@
 .ngSnap.ngSnap-shelves,
 .ngSnap .ngSnap-shelf {
   position: absolute;
-  width: 100%;
   height: 100%;
+}
+.ngSnap.ngSnap-content,
+.ngSnap.ngSnap-shelves {
+  width: 100%;
 }
 .ngSnap .ngSnap-shelf {
   overflow: auto;
@@ -19,6 +22,7 @@
   -moz-overflow-scrolling: touch;
   -o-overflow-scrolling: touch;
   overflow-scrolling: touch;
+  z-index: -1;
 }
 .ngSnap .ngSnap-shelf.right {
   right: 0;

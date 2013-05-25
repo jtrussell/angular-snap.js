@@ -8,5 +8,7 @@ html, body, #content {
 }
 
 #shelf-1 {
-  border-right: 1px solid #ccc;
+  border-right: 5px dashed #ccc;
+  width: 235px;
+  padding: 0 10px;
 }
