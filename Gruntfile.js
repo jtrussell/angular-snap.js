@@ -1,3 +1,5 @@
+/*jshint node:true */
+
 'use strict';
 
 module.exports = function(grunt) {
@@ -7,16 +9,22 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     watch: {
-      files: [
-        'Gruntfile.js',
-        'src/**/*.js'
-      ],
-      tasks: [
-        'jshint',
-        'concat',
-        'uglify'
-        //'test'
-      ]
+      scripts: {
+        files: [
+          'Gruntfile.js',
+          'src/scripts/**/*.js'
+        ],
+        tasks: [
+          'jshint',
+          'concat',
+          'uglify'
+          //'test'
+        ]
+      },
+      styles: {
+        files: 'src/styles/**/*.less',
+        tasks: ['less']
+      }
     },
 
     jshint: {
