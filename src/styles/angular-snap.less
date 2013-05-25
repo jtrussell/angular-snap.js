@@ -47,16 +47,22 @@
   &.ngSnap-shelves,
   .ngSnap-shelf {
     .absolute;
-    .wide;
     .tall;
+  }
+
+  &.ngSnap-content,
+  &.ngSnap-shelves {
+    .wide;
   }
 
   .ngSnap-shelf {
     .smooth-scroll;
+    z-index: -1;
 
     &.right {
       right: 0;
     }
   }
 }
+
 
