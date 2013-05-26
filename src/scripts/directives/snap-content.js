@@ -1,4 +1,4 @@
-/*global angular, Snap */
+/*global angular */
 
 angular.module('snap')
   .directive('snapContent', [function () {
@@ -18,11 +18,13 @@ angular.module('snap')
         var snapOptions = {
           element: iElement[0]
         };
+
         // override snap options if some provided in snap-options attribute
-        if (angular.isDefined(iAttrs.snapOptions)) {
-          angular.extend(snapOptions, angular.fromJson(iAttrs.snapOptions));
+        if (angular.isDefined(iAttrs.snapOptions) && iAttrs.snapOptions) {
+          angular.extend(snapOptions, scope.$eval(iAttrs.snapOptions));
         }
-        var snapper = new Snap(snapOptions);
+
+        var snapper = new window.Snap(snapOptions);
 
         // add toggle method
         snapper.toggle = function(target) {
@@ -32,7 +34,6 @@ angular.module('snap')
 
         // publish to the scope so we have all builtin methods available in ng-click
         scope.snapper = snapper;
-
       }
     };
   }]);
