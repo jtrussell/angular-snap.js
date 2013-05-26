@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - 0.8
+
+before_script:
+  - npm install --quiet -g karma
+  - bower install
+
+script:
+  - karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Chrome
