@@ -7,11 +7,12 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'src/scripts/*.js',
-  'src/scripts/**/*.js',
   'test/components/angular/angular.js',
   'test/components/angular-mocks/angular-mocks.js',
-  'test/mock/**/*.js',
+
+  'src/scripts/*.js',
+  'src/scripts/**/*.js',
+
   'test/spec/**/*.js'
 ];
 
@@ -36,7 +37,7 @@ colors = true;
 logLevel = LOG_INFO;
 
 // enable / disable watching file and executing tests whenever any file changes
-autoWatch = false;
+autoWatch = true;
 
 // Start these browsers, currently available:
 // - Chrome
