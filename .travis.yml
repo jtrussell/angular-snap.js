@@ -4,6 +4,7 @@ node_js:
 
 before_script:
   - npm install --quiet -g karma
+  - npm install --qutie -g bower
   - bower install
 
 script:
