@@ -5,7 +5,8 @@ node_js:
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - npm install --qutie -g bower
+  - npm install -g bower
+  - npm install -g grunt-cli
   - bower install
 
 script:
