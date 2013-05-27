@@ -2,10 +2,10 @@
   "name": "angularSnap",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.0.5",
-    "snapjs": "latest"
   },
   "devDependencies": {
-    "angular-scenario": "~1.0.5"
+    "angular": "~1.0.5",
+    "angular-scenario": "~1.0.5",
+    "angular-mocks": "~1.0.7"
   }
 }
