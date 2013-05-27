@@ -1,4 +1,4 @@
-# Angular Snap.js
+# Angular Snap.js ![Build Status](https://api.travis-ci.org/jtrussell/angular-snap.js.png "Build Status")
 
 > Angular directive for [Snap.js](https://github.com/jakiestfu/Snap.js). 
 

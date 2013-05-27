@@ -35,6 +35,14 @@ module.exports = function(grunt) {
       src: ['src/**/*.js']
     },
 
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        autoWatch: false,
+        singleRun: true
+      }
+    },
+
     less: {
       production: {
         options: {
@@ -76,10 +84,12 @@ module.exports = function(grunt) {
   // Load plugins
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+  grunt.registerTask('test', ['karma']);
+
   // Register task(s)
   grunt.registerTask('default', [
     'jshint',
-    //'test',
+    'test',
     'less',
     'concat',
     'uglify'
