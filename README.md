@@ -1,5 +1,4 @@
 # Angular Snap.js
-- - -
 
 > Angular directive for [snap.js](https://github.com/jakiestfu/Snap.js). 
 
@@ -20,6 +19,8 @@ angular.module('myApp', ['snap']);
 
 The snap module provides three directives: `snap-shelf`, `snap-shelves`, and
 `snap-content`.
+
+__NOTE__: Built files are included in this repo but can be found [here](https://github.com/jtrussell/angular-snap.js-bower).
 
 ### `snap-shelf`
 
