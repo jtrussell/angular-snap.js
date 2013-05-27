@@ -1,12 +1,12 @@
 # Angular Snap.js
 
-> Angular directive for [snap.js](https://github.com/jakiestfu/Snap.js). 
+> Angular directive for [Snap.js](https://github.com/jakiestfu/Snap.js). 
 
 _(work in progress)_
 
 ## What is it?
 
-A pretty thing wrapper around [snap.js](https://github.com/jakiestfu/Snap.js) plus some handy styles to make everything work out of the box.
+A pretty thin wrapper around [snap.js](https://github.com/jakiestfu/Snap.js) plus some handy styles to make everything work out of the box.
 
 ## Usage
 
@@ -74,13 +74,17 @@ your `snap-shelf`s visible.
 ```
 
 You can pass initialization parameters to the `Snap` constructor using the
-`snap-options` attribute on the same element with the `snap-contents` directive:
+`snap-options` attribute on the same element with the `snap-contents` directive.
+
+In your controller:
 
 ```javascript
 $scope.opts = {
   disable: 'right'
 };
 ```
+
+In your view:
 
 ```html
 <div snap-contents snap-options="opts">...</div>
