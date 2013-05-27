@@ -39,7 +39,8 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'karma.conf.js',
         autoWatch: false,
-        singleRun: true
+        singleRun: true,
+        browsers: ['Firefox']
       }
     },
 
