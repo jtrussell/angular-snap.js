@@ -1,4 +1,5 @@
-/*global Snap */
+/*global describe, beforeEach, module, jasmine, inject, angular, it, expect */
+/*jshint node:true */
 
 'use strict';
 
@@ -12,11 +13,14 @@ describe('Directive: snapShelf', function () {
     ].join('')
     , element
     , rootScope
+    , scope
     , compile
     , SnapSpy;
 
   beforeEach(function() {
-    SnapSpy = jasmine.createSpy('Snap');
+    SnapSpy = jasmine.createSpy('Snap').andReturn({
+      settings: jasmine.createSpy('settings')
+    });
     window.Snap = SnapSpy;
   });
 
@@ -50,10 +54,10 @@ describe('Directive: snapShelf', function () {
         expect(SnapSpy.mostRecentCall.args[0].element.id).toBe('mySnapContent');
       });
     });
-    
+
     describe('custom options', function() {
       beforeEach(function() {
-        var scope = rootScope.$new();
+        scope = rootScope.$new();
         scope.opts = {
           customOpt: 'some custom option'
         };
@@ -70,15 +74,24 @@ describe('Directive: snapShelf', function () {
       });
 
       it('should pass through custom options to Snap constructor', function() {
-        expect(SnapSpy.mostRecentCall.args[0].customOpt).toBe('some custom option');
+        expect(SnapSpy.mostRecentCall.args[0].customOpt)
+          .toBe('some custom option');
       });
 
       it('should *always* have fall back to the attached element', function() {
         expect(SnapSpy.mostRecentCall.args[0].element.id).toBe('mySnapContent');
       });
 
+      it('should update Snap settings when configs are changed at runtime',
+          function() {
+        scope.opts.customOpt = 'some new custom option';
+        scope.$digest();
+        expect(scope.snapper.settings).toHaveBeenCalledWith({
+          customOpt: 'some new custom option'
+        });
+      });
     });
-    
+
   });
 
   describe('toggle method', function() {

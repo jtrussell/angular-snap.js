@@ -20,7 +20,7 @@ angular.module('snap')
         };
 
         // override snap options if some provided in snap-options attribute
-        if (angular.isDefined(iAttrs.snapOptions) && iAttrs.snapOptions) {
+        if(angular.isDefined(iAttrs.snapOptions) && iAttrs.snapOptions) {
           angular.extend(snapOptions, scope.$eval(iAttrs.snapOptions));
         }
 
@@ -34,6 +34,13 @@ angular.module('snap')
 
         // publish to the scope so we have all builtin methods available in ng-click
         scope.snapper = snapper;
+
+        // watch snapOptions for updates
+        if(angular.isDefined(iAttrs.snapOptions) && iAttrs.snapOptions) {
+          scope.$watch(iAttrs.snapOptions, function(newSnapOptions) {
+            snapper.settings(newSnapOptions);
+          }, true);
+        }
       }
     };
   }]);

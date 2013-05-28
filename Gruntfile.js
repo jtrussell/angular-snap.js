@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         configFile: 'karma.conf.js',
         autoWatch: false,
         singleRun: true,
-        browsers: ['Firefox']
+        browsers: [process.env.KARMA_BROWSER || 'Firefox']
       }
     },
 
