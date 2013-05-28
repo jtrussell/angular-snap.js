@@ -90,6 +90,9 @@ In your view:
 <div snap-contents snap-options="opts">...</div>
 ```
 
+The `snap-contents` directive will watch your `snap-options` object for runtime
+changes and update itself as you make them.
+
 ## Live Examples
 
 _(more coming soon)_
