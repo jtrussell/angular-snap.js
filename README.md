@@ -101,6 +101,8 @@ Used to easily make a button toggle the snap status.
 <button snap-toggle="left">Toggle Snap</button>
 ```
 
+Note that the default value for `snap-toggle` is "left"
+
 ## Live Examples
 
 _(more coming soon)_
