@@ -3,7 +3,7 @@
 
 'use strict';
 
-describe('Directive: snapShelf', function () {
+describe('Directive: snapShelf', function() {
   beforeEach(module('snap'));
 
   var tpl = [

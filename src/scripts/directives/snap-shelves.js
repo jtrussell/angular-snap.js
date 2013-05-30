@@ -1,5 +1,3 @@
-/*global angular */
-
 angular.module('snap')
   .directive('snapShelves', function () {
     'use strict';

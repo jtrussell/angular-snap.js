@@ -1,5 +1,3 @@
-/*global angular */
-
 angular.module('snap')
   .directive('snapShelf', function () {
     'use strict';
@@ -24,7 +22,7 @@ angular.module('snap')
         if(needsShelvesWrapper) {
           iElement.wrap('<div class="ngSnap ngSnap-shelves" />');
 
-          // If we only have a single shelf probably 
+          // If we only have a single shelf probably
           if(iElement.hasClass('left')) {
             // disable snapper 'right' side
           }

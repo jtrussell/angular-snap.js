@@ -1,5 +1,6 @@
 angular.module('snap')
   .directive('snapToggle', function() {
+      'use strict';
       return function (scope, element, attr) {
         element.bind('click', function() {
             if (element.scope().snapper !== undefined) {
@@ -10,5 +11,5 @@ angular.module('snap')
               }
             }
         });
-      }
+      };
   });

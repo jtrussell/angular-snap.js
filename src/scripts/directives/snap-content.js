@@ -1,5 +1,3 @@
-/*global angular */
-
 angular.module('snap')
   .directive('snapContent', [function () {
     'use strict';
