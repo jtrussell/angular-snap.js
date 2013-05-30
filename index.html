@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/demo.css">
     <link rel="stylesheet" href="components/angular-snap/angular-snap.css">
   </head>
-  <body ng-app="demo">
+  <body ng-app="demo" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -24,22 +24,33 @@
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div id="shelf-1" snap-shelf>
+    <div id="shelf-1" snap-shelf ng-cloak>
       <h1>Hello There</h1>
       <p>Navigation pane(s!) go here</p>
     </div>
 
     <!-- Add your site or application content here -->
-    <div id="content" snap-content>
+    <div id="content" snap-content snap-options="snapOpts">
       <div class="hero-unit">
-        <h1>Oh Boy!</h1>
-        <p>You now have</p>
-        <ul>
-          <li><a href="http://angularjs.org/">AngularJS</a></li>
-          <li><a href="https://github.com/jakiestfu/Snap.js">Snap.js</a></li>
-        </ul>
-        <p>Drag me &#8680;</p>
-        <p>(or <button class="btn btn-small" snap-toggle="left">click me</button>)</p>
+        <div class="row-fluid">
+          <div class="span6">
+            <h1>Oh Boy!</h1>
+            <p>You now have</p>
+            <ul>
+              <li><a href="http://angularjs.org/">AngularJS</a></li>
+              <li><a href="https://github.com/jakiestfu/Snap.js">Snap.js</a></li>
+            </ul>
+            <p>Drag me &#8680;</p>
+            <p>(or <button class="btn btn-small" snap-toggle="left">click me</button>)</p>
+          </div>
+          <div class="span6">
+            <h2>Heads up!</h2>
+            <p>The Snap instance on this page has its right side shelves disabled (meaning
+            you should only be able to slide it right to show the left hand
+            shelves).</p>
+
+          </div>
+        </div>
       </div>
     </div>
 
