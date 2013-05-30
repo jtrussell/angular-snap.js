@@ -92,6 +92,15 @@ In your view:
 The `snap-contents` directive will watch your `snap-options` object for runtime
 changes and update itself as you make them.
 
+
+### `snap-toggle`
+
+Used to easily make a button toggle the snap status.
+
+```html
+<button snap-toggle="left">Toggle Snap</button>
+```
+
 ## Live Examples
 
 _(more coming soon)_
