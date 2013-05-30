@@ -8,18 +8,23 @@ angular.module('snap')
       transclude: true,
       link: function postLink(scope, iElement, iAttrs) {
 
-        // -----------------------------------------------------
-        // If we have jQuery find the shelves and set the max and min positions
-        // accordingly
-        // -----------------------------------------------------
+        // Find the shelves and set `minPosition`/`maxPosition` if they have
+        // non-default widths
+        // ...
+
+        // Do we have a just a single left/right shelf? Disable the other side
+        // ...
+
         var snapOptions = {
           element: iElement[0]
         };
+
         // override snap options if some provided in snap-options attribute
-        if (angular.isDefined(iAttrs.snapOptions)) {
-          angular.extend(snapOptions, angular.fromJson(iAttrs.snapOptions));
+        if(angular.isDefined(iAttrs.snapOptions) && iAttrs.snapOptions) {
+          angular.extend(snapOptions, scope.$eval(iAttrs.snapOptions));
         }
-        var snapper = new Snap(snapOptions);
+
+        var snapper = new window.Snap(snapOptions);
 
         // add toggle method
         snapper.toggle = function(target) {
@@ -30,6 +35,12 @@ angular.module('snap')
         // publish to the scope so we have all builtin methods available in ng-click
         scope.snapper = snapper;
 
+        // watch snapOptions for updates
+        if(angular.isDefined(iAttrs.snapOptions) && iAttrs.snapOptions) {
+          scope.$watch(iAttrs.snapOptions, function(newSnapOptions) {
+            snapper.settings(newSnapOptions);
+          }, true);
+        }
       }
     };
   }]);
@@ -58,7 +69,7 @@ angular.module('snap')
         if(needsShelvesWrapper) {
           iElement.wrap('<div class="ngSnap ngSnap-shelves" />');
 
-          // If we only have a single shelf probably 
+          // If we only have a single shelf probably
           if(iElement.hasClass('left')) {
             // disable snapper 'right' side
           }
@@ -83,4 +94,20 @@ angular.module('snap')
       replace: true,
       template: '<div class="ngSnap ngSnap-shelves" ng-transclude></div>'
     };
+  });
+
+angular.module('snap')
+  .directive('snapToggle', function() {
+      'use strict';
+      return function (scope, element, attr) {
+        element.bind('click', function() {
+            if (element.scope().snapper !== undefined) {
+              if (attr.snapToggle) {
+                element.scope().snapper.toggle(attr.snapToggle);
+              } else {
+                element.scope().snapper.toggle('left');
+              }
+            }
+        });
+      };
   });
