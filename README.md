@@ -7,6 +7,8 @@ _(work in progress)_
 
 A pretty thin wrapper around [snap.js](https://github.com/jakiestfu/Snap.js) plus some handy styles to make everything work out of the box.
 
+__NOTE__: Built files are not included in this repo but can be found [here](https://github.com/jtrussell/angular-snap.js-bower).
+
 ## Directives Usage
 
 This package provides a `snap` module which you'll need to add as a dependency
@@ -16,10 +18,8 @@ to your app, i.e.
 angular.module('myApp', ['snap']);
 ```
 
-The snap module provides three directives: `snap-shelf`, `snap-shelves`, and
-`snap-content`.
-
-__NOTE__: Built files are not included in this repo but can be found [here](https://github.com/jtrussell/angular-snap.js-bower).
+The snap module provides a handful directives: `snap-shelf`, `snap-shelves`,
+`snap-content`, and `snap-toggle`.
 
 ### `snap-shelf`
 
