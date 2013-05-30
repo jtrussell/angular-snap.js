@@ -6,22 +6,41 @@
 describe('Directive: snapToggle', function() {
   beforeEach(module('snap'));
 
-  var tpl = [
-      '<button snap-toggle>',
+  var button = [
+      '<div snap-content><button snap-toggle>',
         'awesome content',
-      '</button>'
-    ].join('')
-    , element
-    , rootScope
-    , compile;
+      '</button></div>'
+      ].join('');
 
-  beforeEach(inject(function($rootScope, $compile) {
-    rootScope = $rootScope;
-    compile = $compile;
+  var rightButton = [
+      '<div snap-content><button snap-toggle="right">',
+        'awesome content',
+      '</button></div>'
+      ].join('');
 
-    element = angular.element(tpl);
-    element = compile(element)(rootScope);
-  }));
+  var element;
 
-  console.log('[todo] test toggle directive [/todo]');
+  describe('behaviour', function() {
+    it('should call snapper toggle method on the left snap', inject(function($rootScope, $compile) {
+      element = angular.element(button);
+      element = $compile(element)($rootScope);
+
+      spyOn($rootScope.snapper, 'toggle');
+
+      element.find('button')[0].click();
+      expect($rootScope.snapper.toggle).toHaveBeenCalledWith('left');
+
+    }));
+
+    it('should call snapper toggle method on the right snap', inject(function($rootScope, $compile) {
+      element = angular.element(rightButton);
+      element = $compile(element)($rootScope);
+
+      spyOn($rootScope.snapper, 'toggle');
+      
+      element.find('button')[0].click();
+      expect($rootScope.snapper.toggle).toHaveBeenCalledWith('right');
+
+    }));
+  });
 });
