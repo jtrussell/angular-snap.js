@@ -27,3 +27,38 @@
 .ngSnap .ngSnap-shelf.right {
   right: 0;
 }
+[snap\:content],
+[snap-content],
+[data-snap-content],
+[x-snap-content],
+.snap-content,
+.x-snap-content,
+[snap\:shelves],
+[snap-shelves],
+[data-snap-shelves],
+[x-snap-shelves],
+.snap-shelves,
+.x-snap-shelves,
+[snap\:shelf],
+[snap-shelf],
+[data-snap-shelf],
+[x-snap-shelf],
+.snap-shelf,
+.x-snap-shelf {
+  position: absolute;
+}
+[snap\:content],
+[snap-content],
+[data-snap-content],
+[x-snap-content],
+.snap-content,
+.x-snap-content,
+[snap\:shelves],
+[snap-shelves],
+[data-snap-shelves],
+[x-snap-shelves],
+.snap-shelves,
+.x-snap-shelves {
+  height: 100%;
+  width: 100%;
+}
