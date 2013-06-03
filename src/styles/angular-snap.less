@@ -1,9 +1,13 @@
 .tall() {
-  height: 100%;
+  height: auto;
+  top: 0;
+  bottom: 0;
 }
 
 .wide() {
-  width: 100%;
+  width: auto;
+  left: 0;
+  right: 0;
 }
 
 .absolute() {
@@ -42,39 +46,42 @@
   .overflow-scrolling(touch);
 }
 
-.ngSnap {
-  &.ngSnap-content,
-  &.ngSnap-shelves,
-  .ngSnap-shelf {
-    .absolute;
-    .tall;
-  }
-
-  &.ngSnap-content,
-  &.ngSnap-shelves {
-    .wide;
-  }
-
-  .ngSnap-shelf {
-    .smooth-scroll;
-    z-index: -1;
-
-    &.right {
-      right: 0;
-    }
-  }
-}
-
-// Fix for shelf flickering? Can clean up some redundant styles above if this
-// works well
-[snap\:content], [snap-content], [data-snap-content], [x-snap-content], .snap-content, .x-snap-content,
-[snap\:shelves], [snap-shelves], [data-snap-shelves], [x-snap-shelves], .snap-shelves, .x-snap-shelves,
-[snap\:shelf], [snap-shelf], [data-snap-shelf], [x-snap-shelf], .snap-shelf, .x-snap-shelf {
+.snap-drawers,
+.snap-content {
   .absolute;
-}
-
-[snap\:content], [snap-content], [data-snap-content], [x-snap-content], .snap-content, .x-snap-content,
-[snap\:shelves], [snap-shelves], [data-snap-shelves], [x-snap-shelves], .snap-shelves, .x-snap-shelves {
   .tall;
   .wide;
+}
+
+.snap-drawer {
+  .absolute;
+  .tall;
+  .smooth-scroll;
+  width: 265px;
+}
+
+.snap-content {
+  z-index: 2;
+  .translate3d(0, 0, 0);
+  .overflow-scrolling(touch);
+}
+
+.snap-drawer-left {
+  left: 0;
+  z-index: 1;
+}
+
+.snap-drawer-right {
+  right: 0;
+  z-index: 1;
+}
+
+.snapjs-left .snap-drawer-right,
+.snapjs-right .snap-drawer-left {
+  display: none;
+}
+
+.snapjs-expand-left .snap-drawer-left,
+.snapjs-expand-right .snap-drawer-right {
+  width: 100%;
 }

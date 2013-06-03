@@ -3,11 +3,11 @@
 
 'use strict';
 
-describe('Directive: snapShelf', function() {
+describe('Directive: snapDrawer', function() {
   beforeEach(module('snap'));
 
   var tpl = [
-      '<div snap-shelf>',
+      '<div snap-drawer>',
         'awesome content',
       '</div>'
     ].join('')
@@ -29,13 +29,13 @@ describe('Directive: snapShelf', function() {
     });
 
     it('should have class names our stylesheets rely on', function() {
-      expect(element.hasClass('ngSnap-shelf')).toBe(true);
+      expect(element.hasClass('snap-drawer')).toBe(true);
     });
   });
 
   describe('lone shelf', function() {
-    it('should wrap itself in snap-shelves if it is not already', function() {
-      expect(element.parent().hasClass('ngSnap-shelves')).toBe(true);
+    it('should wrap itself in snap-drawers if it is not already', function() {
+      expect(element.parent().hasClass('snap-drawers')).toBe(true);
     });
   });
 });
