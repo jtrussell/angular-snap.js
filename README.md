@@ -18,54 +18,54 @@ to your app, i.e.
 angular.module('myApp', ['snap']);
 ```
 
-The snap module provides a handful directives: `snap-shelf`, `snap-shelves`,
+The snap module provides a handful directives: `snap-drawers`, `snap-drawer`,
 `snap-content`, and `snap-toggle`.
 
-### `snap-shelf`
+### snap-drawer
 
 Tack this onto the element containing your navigation content:
 
 ```html
-<div snap-shelf>
-  <p>I'm a shelf! I maybe I've got some sweet navigation links.</p>
+<div snap-drawer>
+  <p>I'm a drawer! I maybe I've got some sweet navigation links.</p>
 </div>
 ```
 
-By default shelves show up on the left side of the page, use the class `right`
-to get a right-aligned shelf:
+By default drawers show up on the left side of the page, pass the parameter `right`
+to get a right-aligned drawer:
 
 ```html
-<div snap-shelf class="right">
-  <p>Hi! I'm a right-aligned shelf!</p>
+<div snap-drawer="right">
+  <p>Hi! I'm a right-aligned drawer!</p>
 </div>
 ```
 
-### `snap-shelves`
+### snap-drawers
 
-Multiple shelves must be wrapped in an element sporting the `snap-shelves`
+Multiple drawers must be wrapped in an element sporting the `snap-drawers`
 directive:
 
 ```html
-<div snap-shelves>
-  <div snap-shelf>
-    I'm a left shelf!
+<div snap-drawers>
+  <div snap-drawer>
+    I'm a left drawer!
   </div>
-  <div snap-shelf class="right">
-    I'm a right shelf!
+  <div snap-drawer="right">
+    I'm a right drawer!
   </div>
 </div>
 ```
 
-Actually, all `snap-shelf` elements must be wrapped in a `snap-shelves` element.
-This just happens automatically when you have a single shelf.
+Actually, all `snap-drawer` elements must be wrapped in a `snap-drawers` element.
+This just happens automatically when you have a single drawer.
 
-### `snap-content`
+### snap-content
 
 Your main content goes here, this is the stuff you slide left or right to make
-your `snap-shelf`s visible.
+your `snap-drawers` visible.
 
 ```html
-<div snap-shelf>...</div>
+<div snap-drawer>...</div>
 
 <div snap-content>
   <p>Hello! I'm your main content!</p>
@@ -86,10 +86,10 @@ $scope.opts = {
 In your view:
 
 ```html
-<div snap-contents snap-options="opts">...</div>
+<div snap-content snap-options="opts">...</div>
 ```
 
-The `snap-contents` directive will watch your `snap-options` object for runtime
+The `snap-content` directive will watch your `snap-options` object for runtime
 changes and update itself as you make them.
 
 
@@ -101,7 +101,7 @@ Used to easily make a button toggle the snap status.
 <button snap-toggle="left">Toggle Snap</button>
 ```
 
-Note that the default value for `snap-toggle` is "left"
+Note that the default value for `snap-toggle` is `left`. Set it to `right` to toggle the right drawer.
 
 ## Live Examples
 

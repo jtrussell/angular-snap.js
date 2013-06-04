@@ -3,7 +3,7 @@
 
 'use strict';
 
-describe('Directive: snapShelf', function() {
+describe('Directive: snapContent', function() {
   beforeEach(module('snap'));
 
   var tpl = [
@@ -30,7 +30,7 @@ describe('Directive: snapShelf', function() {
 
     element = angular.element(tpl);
     element = compile(element)(rootScope);
-    element = element.children(); // snap-content does not replace
+    //element = element.children(); // snap-content does not replace
   }));
 
   describe('basics', function() {
@@ -39,8 +39,7 @@ describe('Directive: snapShelf', function() {
     });
 
     it('should have class names our stylesheets rely on', function() {
-      expect(element.hasClass('ngSnap')).toBe(true);
-      expect(element.hasClass('ngSnap-content')).toBe(true);
+      expect(element.hasClass('snap-content')).toBe(true);
     });
   });
 
