@@ -1,14 +1,18 @@
-.ngSnap.ngSnap-content,
-.ngSnap.ngSnap-shelves,
-.ngSnap .ngSnap-shelf {
+.snap-drawers,
+.snap-content {
   position: absolute;
-  height: 100%;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  width: auto;
+  left: 0;
+  right: 0;
 }
-.ngSnap.ngSnap-content,
-.ngSnap.ngSnap-shelves {
-  width: 100%;
-}
-.ngSnap .ngSnap-shelf {
+.snap-drawer {
+  position: absolute;
+  height: auto;
+  top: 0;
+  bottom: 0;
   overflow: auto;
   -webkit-transition: top 0.2s linear;
   -moz-transition: top 0.2s linear;
@@ -22,43 +26,32 @@
   -moz-overflow-scrolling: touch;
   -o-overflow-scrolling: touch;
   overflow-scrolling: touch;
-  z-index: -1;
+  width: 265px;
 }
-.ngSnap .ngSnap-shelf.right {
+.snap-content {
+  z-index: 2;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.snap-drawer-left {
+  left: 0;
+  z-index: 1;
+}
+.snap-drawer-right {
   right: 0;
+  z-index: 1;
 }
-[snap\:content],
-[snap-content],
-[data-snap-content],
-[x-snap-content],
-.snap-content,
-.x-snap-content,
-[snap\:shelves],
-[snap-shelves],
-[data-snap-shelves],
-[x-snap-shelves],
-.snap-shelves,
-.x-snap-shelves,
-[snap\:shelf],
-[snap-shelf],
-[data-snap-shelf],
-[x-snap-shelf],
-.snap-shelf,
-.x-snap-shelf {
-  position: absolute;
+.snapjs-left .snap-drawer-right,
+.snapjs-right .snap-drawer-left {
+  display: none;
 }
-[snap\:content],
-[snap-content],
-[data-snap-content],
-[x-snap-content],
-.snap-content,
-.x-snap-content,
-[snap\:shelves],
-[snap-shelves],
-[data-snap-shelves],
-[x-snap-shelves],
-.snap-shelves,
-.x-snap-shelves {
-  height: 100%;
+.snapjs-expand-left .snap-drawer-left,
+.snapjs-expand-right .snap-drawer-right {
   width: 100%;
 }

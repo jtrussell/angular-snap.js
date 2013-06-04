@@ -4,9 +4,10 @@ angular.module('snap')
   .directive('snapContent', [function () {
     'use strict';
     return {
-      template: '<div class="ngSnap ngSnap-content" ng-transclude></div>',
+      template: '<div class="snap-content" ng-transclude></div>',
       transclude: true,
-      link: function postLink(scope, iElement, iAttrs) {
+      replace: true,
+      link: function postLink(scope, element, attrs) {
 
         // Find the shelves and set `minPosition`/`maxPosition` if they have
         // non-default widths
@@ -16,12 +17,12 @@ angular.module('snap')
         // ...
 
         var snapOptions = {
-          element: iElement[0]
+          element: element[0]
         };
 
         // override snap options if some provided in snap-options attribute
-        if(angular.isDefined(iAttrs.snapOptions) && iAttrs.snapOptions) {
-          angular.extend(snapOptions, scope.$eval(iAttrs.snapOptions));
+        if(angular.isDefined(attrs.snapOptions) && attrs.snapOptions) {
+          angular.extend(snapOptions, scope.$eval(attrs.snapOptions));
         }
 
         var snapper = new window.Snap(snapOptions);
@@ -36,8 +37,8 @@ angular.module('snap')
         scope.snapper = snapper;
 
         // watch snapOptions for updates
-        if(angular.isDefined(iAttrs.snapOptions) && iAttrs.snapOptions) {
-          scope.$watch(iAttrs.snapOptions, function(newSnapOptions) {
+        if(angular.isDefined(attrs.snapOptions) && attrs.snapOptions) {
+          scope.$watch(attrs.snapOptions, function(newSnapOptions) {
             snapper.settings(newSnapOptions);
           }, true);
         }
@@ -46,37 +47,34 @@ angular.module('snap')
   }]);
 
 angular.module('snap')
-  .directive('snapShelf', function () {
+  .directive('snapDrawer', function () {
     'use strict';
     return {
-      template: '<div class="ngSnap-shelf" ng-transclude></div>',
+      template: '<div class="snap-drawer" ng-transclude></div>',
       transclude: true,
       replace: true,
-      link: function(scope, iElement, iAttrs) {
+      link: function(scope, element, attrs) {
 
-        // Don't force a `snap-shelves` wrapper when we only want to use a
+        // Don't force a `snap-drawers` wrapper when we only want to use a
         // single shelf
-        var iParent = iElement.parent()
-          , needsShelvesWrapper = true;
+        var parent = element.parent()
+          , needsDrawersWrapper = true;
 
-        while(iParent.length) {
-          if(iParent.hasClass('ngSnap-shelves')) {
-            needsShelvesWrapper = false;
-          }
-          iParent = iParent.parent();
+        if (attrs.snapDrawer === 'right') {
+          element.addClass('snap-drawer-right');
+        } else {
+          element.addClass('snap-drawer-left');
         }
 
-        if(needsShelvesWrapper) {
-          iElement.wrap('<div class="ngSnap ngSnap-shelves" />');
-
-          // If we only have a single shelf probably
-          if(iElement.hasClass('left')) {
-            // disable snapper 'right' side
+        while(parent.length) {
+          if(parent.hasClass('snap-drawers')) {
+            needsDrawersWrapper = false;
           }
+          parent = parent.parent();
+        }
 
-          if(iElement.hasClass('right')) {
-            // disable snapper 'left' side
-          }
+        if(needsDrawersWrapper) {
+          element.wrap('<div class="snap-drawers" />');
         }
 
         // Get the width of element[0] and apply it to the shelf
@@ -87,23 +85,23 @@ angular.module('snap')
   });
 
 angular.module('snap')
-  .directive('snapShelves', function () {
+  .directive('snapDrawers', function () {
     'use strict';
     return {
       transclude: true,
       replace: true,
-      template: '<div class="ngSnap ngSnap-shelves" ng-transclude></div>'
+      template: '<div class="snap-drawers" ng-transclude></div>'
     };
   });
 
 angular.module('snap')
   .directive('snapToggle', function() {
       'use strict';
-      return function (scope, element, attr) {
+      return function (scope, element, attrs) {
         element.bind('click', function() {
             if (scope.snapper !== undefined) {
-              if (attr.snapToggle) {
-                scope.snapper.toggle(attr.snapToggle);
+              if (attrs.snapToggle) {
+                scope.snapper.toggle(attrs.snapToggle);
               } else {
                 scope.snapper.toggle('left');
               }
