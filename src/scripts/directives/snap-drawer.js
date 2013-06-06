@@ -5,6 +5,7 @@ angular.module('snap')
       template: '<div class="snap-drawer" ng-transclude></div>',
       transclude: true,
       replace: true,
+      restrict: 'AE',
       link: function(scope, element, attrs) {
 
         // Don't force a `snap-drawers` wrapper when we only want to use a
