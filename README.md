@@ -103,6 +103,14 @@ Used to easily make a button toggle the snap status.
 
 Note that the default value for `snap-toggle` is `left`. Set it to `right` to toggle the right drawer.
 
+### `snap-close`
+
+Used to easily make a button to close the opened drawer.
+
+```html
+<button snap-close>Close Snap</button>
+```
+
 ## Live Examples
 
 _(more coming soon)_
