@@ -1,4 +1,4 @@
-/*global describe, beforeEach, module, jasmine, inject, angular, it, expect */
+/*global describe, beforeEach, module, jasmine, inject, angular, it, expect, spyOn */
 /*jshint node:true */
 
 'use strict';
@@ -12,18 +12,25 @@ describe('Directive: snapClose', function() {
       '</button>'
       ].join('');
 
-  var element;
+  var element
+    , scope;
+
+  beforeEach(inject(function($rootScope, $compile) {
+    scope = $rootScope.$new();
+
+    scope.snapper = {
+      close: angular.noop
+    };
+
+    element = angular.element(button);
+    element = $compile(element)(scope);
+  }));
 
   describe('behaviour', function() {
-    it('should call snapper close method', inject(function($rootScope, $compile) {
-      element = angular.element(button);
-      element = $compile(element)($rootScope);
-
-      spyOn($rootScope.snapper, 'close');
-
-      element.find('button')[0].click();
-      expect($rootScope.snapper.close).toHaveBeenCalled();
-
-    }));
+    it('should call snapper close method', function() {
+      spyOn(scope.snapper, 'close');
+      element[0].click();
+      expect(scope.snapper.close).toHaveBeenCalled();
+    });
   });
 });
