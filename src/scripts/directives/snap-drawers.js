@@ -4,6 +4,7 @@ angular.module('snap')
     return {
       transclude: true,
       replace: true,
+      restrict: 'AE',
       template: '<div class="snap-drawers" ng-transclude></div>'
     };
   });

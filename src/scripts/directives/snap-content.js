@@ -5,6 +5,7 @@ angular.module('snap')
       template: '<div class="snap-content" ng-transclude></div>',
       transclude: true,
       replace: true,
+      restrict: 'AE',
       link: function postLink(scope, element, attrs) {
 
         // Find the shelves and set `minPosition`/`maxPosition` if they have
