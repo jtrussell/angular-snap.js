@@ -1,5 +1,6 @@
 angular.module('snap')
   .factory('snapSnapper', [function() {
+    'use strict';
     var snapper = null;
 
     // Provide direct access to the snapper object and a few convenience methods
