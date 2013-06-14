@@ -1,6 +1,18 @@
 angular.module('snap', []);
 
 angular.module('snap')
+  .directive('snapClose', function() {
+    'use strict';
+    return function (scope, element, attrs) {
+      element.bind('click', function() {
+        if (scope.snapper !== undefined) {
+          scope.snapper.close();
+        }
+      });
+    };
+  });
+
+angular.module('snap')
   .directive('snapContent', [function () {
     'use strict';
     return {

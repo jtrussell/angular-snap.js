@@ -1,0 +1,26 @@
+{
+  "name": "angular-snap",
+  "version": "0.0.0",
+  "main": [
+    "angular-snap.js",
+    "angular-snap.min.js",
+    "angular-snap.css",
+    "angular-snap.min.css"
+  ],
+  "ignore": [
+    "README.md"
+  ],
+  "dependencies": {
+    "snapjs": "latest"
+  },
+  "gitHead": "1830933345d55ad814e2a023e7f988bdbc4cec23",
+  "readme": "# Angular-Snap.js\n\nThis repo holds built files for the [angular-snap.js](https://github.com/jtrussell/angular-snap.js) component.\n\nPlease direct issues and contributions there.\n\n__NOTE__\nThis project is under active development and may contain untested and/or\nexperimental features. Please see our remaining [1.0.0 milestone issues](https://github.com/jtrussell/angular-snap.js/issues?milestone=1&page=1&state=open)\nfor a complete list of what remains before a stable release.\n",
+  "readmeFilename": "README.md",
+  "_id": "angular-snap@0.0.0",
+  "description": "This repo holds built files for the [angular-snap.js](https://github.com/jtrussell/angular-snap.js) component.",
+  "commit": "1830933345d55ad814e2a023e7f988bdbc4cec23",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jtrussell/angular-snap.js-bower.git"
+  }
+}
