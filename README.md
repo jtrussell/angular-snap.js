@@ -31,6 +31,15 @@ Tack this onto the element containing your navigation content:
 </div>
 ```
 
+It can be an element level directive too if you're into that sort of thing:
+
+```html
+<snap-drawer>
+  <p>I'm a drawer! I maybe I've got some sweet navigation links.</p>
+</snap-drawer>
+```
+
+
 By default drawers show up on the left side of the page, pass the parameter `right`
 to get a right-aligned drawer:
 
@@ -56,8 +65,21 @@ directive:
 </div>
 ```
 
+Just like `snap-drawer` this also comes in element flavor:
+
+```html
+<snap-drawers>
+  <snap-drawer>
+    I'm a left drawer!
+  </snap-drawer>
+  <div snap-drawer="right">
+    Heads up! Only the attribute level directive can be on the right (right now)
+  </div>
+</snap-drawers>
+```
+
 Actually, all `snap-drawer` elements must be wrapped in a `snap-drawers` element.
-This just happens automatically when you have a single drawer.
+This just happens behind the scenes when you have a single drawer.
 
 ### snap-content
 
@@ -70,6 +92,16 @@ your `snap-drawers` visible.
 <div snap-content>
   <p>Hello! I'm your main content!</p>
 </div>
+```
+
+And this is cool too:
+
+```html
+<snap-drawer>...</snap-drawer>
+
+<snap-content>
+  <p>Hello! I'm your main content!</p>
+</snap-content>
 ```
 
 You can pass initialization parameters to the `Snap` constructor using the
@@ -86,7 +118,7 @@ $scope.opts = {
 In your view:
 
 ```html
-<div snap-content snap-options="opts">...</div>
+<snap-content snap-options="opts">...</snap-content>
 ```
 
 The `snap-content` directive will watch your `snap-options` object for runtime
