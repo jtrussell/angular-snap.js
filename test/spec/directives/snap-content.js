@@ -97,4 +97,24 @@ describe('Directive: snapContent', function() {
     console.log('[todo] test toggle method [/todo]');
   });
 
+  describe('Element level directive', function() {
+    beforeEach(function() {
+      element = angular.element([
+        '<snap-content id="mySnapContent">',
+          'main stuffs',
+        '</snap-content>'
+      ].join(''));
+      element = compile(element)(rootScope);
+    });
+
+    it('should show its contents', function() {
+      expect(element.text()).toBe('main stuffs');
+    });
+
+    it('should have class names our stylesheets rely on', function() {
+      expect(element.hasClass('snap-content')).toBe(true);
+    });
+  });
+
+
 });
