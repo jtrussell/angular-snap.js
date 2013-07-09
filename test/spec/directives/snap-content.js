@@ -15,12 +15,15 @@ describe('Directive: snapContent', function() {
     , rootScope
     , scope
     , compile
+    , snapperDummy
     , SnapSpy;
 
   beforeEach(function() {
-    SnapSpy = jasmine.createSpy('Snap').andReturn({
+    snapperDummy = {
       settings: jasmine.createSpy('settings')
-    });
+    };
+    
+    SnapSpy = jasmine.createSpy('Snap').andReturn(snapperDummy);
     window.Snap = SnapSpy;
   });
 
@@ -85,16 +88,12 @@ describe('Directive: snapContent', function() {
           function() {
         scope.opts.customOpt = 'some new custom option';
         scope.$digest();
-        expect(scope.snapper.settings).toHaveBeenCalledWith({
+        expect(snapperDummy.settings).toHaveBeenCalledWith({
           customOpt: 'some new custom option'
         });
       });
     });
 
-  });
-
-  describe('toggle method', function() {
-    console.log('[todo] test toggle method [/todo]');
   });
 
   describe('Element level directive', function() {

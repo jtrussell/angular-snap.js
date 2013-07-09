@@ -1,5 +1,5 @@
 angular.module('snap')
-  .directive('snapContent', [function () {
+  .directive('snapContent', ['snapRemote', function (snapRemote) {
     'use strict';
     return {
       template: '<div class="snap-content" ng-transclude></div>',
@@ -7,14 +7,6 @@ angular.module('snap')
       replace: true,
       restrict: 'AE',
       link: function postLink(scope, element, attrs) {
-
-        // Find the shelves and set `minPosition`/`maxPosition` if they have
-        // non-default widths
-        // ...
-
-        // Do we have a just a single left/right shelf? Disable the other side
-        // ...
-
         var snapOptions = {
           element: element[0]
         };
@@ -24,21 +16,15 @@ angular.module('snap')
           angular.extend(snapOptions, scope.$eval(attrs.snapOptions));
         }
 
-        var snapper = new window.Snap(snapOptions);
-
-        // add toggle method
-        snapper.toggle = function(target) {
-          var method = (snapper.state().state === target)?'close':'open';
-          snapper[method](target);
-        };
-
-        // publish to the scope so we have all builtin methods available in ng-click
-        scope.snapper = snapper;
+        snapRemote.register(new window.Snap(snapOptions));
 
         // watch snapOptions for updates
         if(angular.isDefined(attrs.snapOptions) && attrs.snapOptions) {
           scope.$watch(attrs.snapOptions, function(newSnapOptions) {
-            snapper.settings(newSnapOptions);
+            var snppr = snapRemote.get();
+            if(snppr) {
+              snppr.settings(newSnapOptions);
+            }
           }, true);
         }
       }
