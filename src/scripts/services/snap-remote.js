@@ -1,45 +1,44 @@
 angular.module('snap')
-  .factory('snapRemote', [function() {
+  .factory('snapRemote', ['$q', function($q) {
     'use strict';
 
     // Provide direct access to the snapper object and a few convenience methods
     // for our directives.
 
-    var snapper = null
+    var deferred = $q.defer()
       , exports;
   
     exports = {
       // Returns null until our `snap-content` initializes
       get: function() {
-        return snapper;
+        return deferred.promise;
       },
 
       // Eventually we may want to allow for multiple snap instances
-      register: function(snppr) {
-        snapper = snppr;
+      register: function(snapper) {
+        deferred.resolve(snapper);
       },
 
       toggle: function(side) {
-        var snppr = exports.get()
-          , method;
-        if(snppr) {
-          method = (snppr.state().state === side) ? 'close' : 'open';
-          snppr[method](side);
-        }
+        exports.get().then(function(snapper) {
+          if(side === snapper.state().state) {
+            exports.close(side);
+          } else {
+            exports.open(side);
+          }
+        });
       },
 
       open: function(side) {
-        var snppr = exports.get();
-        if(snppr) {
-          snppr.open(side);
-        }
+        exports.get().then(function(snapper) {
+          snapper.open(side);
+        });
       },
 
       close: function() {
-        var snppr = exports.get();
-        if(snppr) {
-          snppr.close();
-        }
+        exports.get().then(function(snapper) {
+          snapper.close();
+        });
       }
     };
 
