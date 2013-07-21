@@ -87,7 +87,7 @@ describe('Directive: snapContent', function() {
       it('should update Snap settings when configs are changed at runtime',
           function() {
         scope.opts.customOpt = 'some new custom option';
-        scope.$digest();
+        scope.$apply();
         expect(snapperDummy.settings).toHaveBeenCalledWith({
           customOpt: 'some new custom option'
         });
