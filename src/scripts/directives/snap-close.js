@@ -1,5 +1,5 @@
 angular.module('snap')
-  .directive('snapClose', ['snapRemote', function(snapRemote) {
+  .directive('snapClose', ['$rootScope', 'snapRemote', function($rootScope, snapRemote) {
     'use strict';
     return {
       restrict: 'A',
@@ -7,6 +7,7 @@ angular.module('snap')
         element.bind('click', function() {
           // Wrap in anonymous function for easier testing
           snapRemote.close();
+          $rootScope.$digest();
         });
       }
     };

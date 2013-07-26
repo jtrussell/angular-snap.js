@@ -1,5 +1,5 @@
 angular.module('snap')
-  .directive('snapToggle', ['snapRemote', function(snapRemote) {
+  .directive('snapToggle', ['$rootScope', 'snapRemote', function($rootScope, snapRemote) {
       'use strict';
       return {
         restrict: 'A',
@@ -10,6 +10,7 @@ angular.module('snap')
             } else {
               snapRemote.toggle('left');
             }
+            $rootScope.$digest();
           });
         }
       };
