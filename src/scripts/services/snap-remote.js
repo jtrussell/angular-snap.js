@@ -9,12 +9,10 @@ angular.module('snap')
       , exports;
   
     exports = {
-      // Returns null until our `snap-content` initializes
       get: function() {
         return deferred.promise;
       },
 
-      // Eventually we may want to allow for multiple snap instances
       register: function(snapper) {
         deferred.resolve(snapper);
       },
