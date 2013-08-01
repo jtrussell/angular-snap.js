@@ -5,10 +5,18 @@ html, body, #content {
 
 #content {
   background-color: #fff;
+
+  -moz-box-shadow: 0 0 20px #888;
+  -webkit-box-shadow: 0 0 20px #888;
+  box-shadow: 0 0 20px #888;
 }
 
 #shelf-1 {
-  border-right: 5px dashed #ccc;
   width: 235px;
   padding: 0 10px;
+}
+
+#nav-wrapper {
+  width: 100%;
+  text-align: center;
 }
