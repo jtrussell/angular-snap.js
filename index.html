@@ -36,13 +36,22 @@
 
         <div id="nav-wrapper">
           <div class="navbar">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
             <a class="navbar-brand" href="#">Angular Snap.js</a>
-            <ul class="nav navbar-nav">
-              <li><a href="#">About</a></li>
-              <li><a href="#">Demo</a></li>
-              <li><a href="#">Usage</a></li>
-              <li><a href="#">Contributing</a></li>
-            </ul>
+
+            <div class="nav-collapse collapse navbar-responsive-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Demo</a></li>
+                <li><a href="#">Usage</a></li>
+                <li><a href="#">Contributing</a></li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -86,6 +95,9 @@
     <script src="components/Snap.js/snap.js"></script>
     <script src="components/angular-snap/angular-snap.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/transition.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/collapse.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
