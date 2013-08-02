@@ -20,7 +20,3 @@ html, body, #content {
   width: 100%;
   text-align: center;
 }
-
-.navbar, .jumbotron {
-  background: url("../images/textured_stripes.png") repeat;
-}
