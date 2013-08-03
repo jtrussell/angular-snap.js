@@ -24,68 +24,92 @@
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div id="shelf-1" snap-drawer>
+    <div id="shelf-1" class="scrollable" snap-drawer>
       <h1>Hello There</h1>
       <p>Navigation pane(s!) go here</p>
     </div>
 
     <!-- Add your site or application content here -->
-    <div id="content" snap-content snap-options="snapOpts">
+    <div id="content" class="scrollable" snap-content snap-options="snapOpts">
 
       <div class="container" style="padding-top: 30px;">
+        <div class="col-lg-10 col-offset-1">
+          <div id="nav-wrapper">
+            <div class="navbar">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-        <div id="nav-wrapper">
-          <div class="navbar">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+              <a class="navbar-brand" href="#">Angular Snap.js</a>
 
-            <a class="navbar-brand" href="#">Angular Snap.js</a>
-
-            <div class="nav-collapse collapse navbar-responsive-collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Demo</a></li>
-                <li><a href="#">Usage</a></li>
-                <li><a href="#">Contributing</a></li>
-              </ul>
+              <div class="nav-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Demo</a></li>
+                  <li><a href="#">Usage</a></li>
+                  <li><a href="#">Contributing</a></li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="jumbotron">
-          <div class="row">
+          <div class="jumbotron">
+            <div class="row">
+              <div class="col-lg-6">
+                <h1>Oh Boy!</h1>
+                <p>You now have</p>
+                <ul>
+                  <li><a href="http://angularjs.org/">AngularJS</a></li>
+                  <li><a href="https://github.com/jakiestfu/Snap.js">Snap.js</a></li>
+                </ul>
+                <p>Drag me &#8680;</p>
+                <p>(or <button class="btn btn-primary btn-small" snap-toggle="left">click me</button>)</p>
+              </div>
+              <div class="col-lg-6">
+                <h2>Heads up...</h2>
+                <p>The Snap instance on this page has its right side shelves disabled (meaning
+                you should only be able to slide it right to show the left hand
+                shelves).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-heading"><h4>Quick Start</h4></div>
+            <p>All you need is a drawer and some content:</p>
+            <pre>
+&lt;snap-drawer&gt;
+  I'm in a drawer!
+&lt;/snap-drawer&gt;
+
+&lt;snap-content&gt;
+  I'm your main content!
+&lt;/snap-content&gt;
+            </pre>
+            <p>Don't forget to include snap.js, angular-snap.js, and angular-snap.css on your page. </p>
+            <p>For more details check out the documentation on <a href="https://github.com/jtrussell/angular-snap.js">github</a>.</p>
+          </div>
+
+          <div class="panel">
+            <div class="panel-heading"><h4>Pro Tips</h4></div>
+            <ul>
+              <li>Read the <a href="https://github.com/jakiestfu/Snap.js">Snap.js docs</a> if you want to take advantage of sweet features like independent drawer/content scrolling.</li>
+            </ul>
+          </div>
+
+          <hr />
+          <div class="row" style="padding-bottom: 15px;">
             <div class="col-lg-6">
-              <h1>Oh Boy!</h1>
-              <p>You now have</p>
-              <ul>
-                <li><a href="http://angularjs.org/">AngularJS</a></li>
-                <li><a href="https://github.com/jakiestfu/Snap.js">Snap.js</a></li>
-              </ul>
-              <p>Drag me &#8680;</p>
-              <p>(or <button class="btn btn-primary btn-small" snap-toggle="left">click me</button>)</p>
+              <span class="text-muted">Licensed under <a href="https://raw.github.com/jtrussell/angular-snap.js/master/LICENSE-MIT">The MIT license</a></span>
             </div>
-            <div class="col-lg-6">
-              <h2>Heads up...</h2>
-              <p>The Snap instance on this page has its right side shelves disabled (meaning
-              you should only be able to slide it right to show the left hand
-              shelves).</p>
+            <div class="col-lg-6" style="text-align:right;">
+              <span class="text-muted"></span>
             </div>
           </div>
         </div>
 
-        <hr />
-
-        <div class="row">
-          <div class="col-lg-6">
-            <span class="text-muted">Licensed under <a href="https://raw.github.com/jtrussell/angular-snap.js/master/LICENSE-MIT">The MIT license</a></span>
-          </div>
-          <div class="col-lg-6" style="text-align:right;">
-            <span class="text-muted"></span>
-          </div>
-        </div>
 
       </div>
 
