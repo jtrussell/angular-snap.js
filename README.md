@@ -125,7 +125,7 @@ The `snap-content` directive will watch your `snap-options` object for runtime
 changes and update itself as you make them.
 
 
-### `snap-toggle`
+### snap-toggle
 
 Used to easily make a button toggle the snap status.
 
@@ -135,7 +135,7 @@ Used to easily make a button toggle the snap status.
 
 Note that the default value for `snap-toggle` is `left`. Set it to `right` to toggle the right drawer.
 
-### `snap-close`
+### snap-close
 
 Used to easily make a button to close the opened drawer.
 
@@ -145,7 +145,7 @@ Used to easily make a button to close the opened drawer.
 
 ## Services
 
-### `snapRemote`
+### snapRemote
 
 The "remote control" if you will. This service gives you programmatic access to
 the snapper instance. Check out the [Snap.js docs](https://github.com/jakiestfu/Snap.js) for all the fancy things
@@ -171,7 +171,7 @@ likely if you're already working with `angular-snap.js`.
 
 #### `snapRemote.toggle(side)`
 
-Change the open/closed state of your drawer, `side` should be either "right" or
+Toggles the open/closed state of your drawer, `side` should be either "right" or
 "left".
 
 #### `snapRemote.open(side)`
