@@ -2666,7 +2666,7 @@ button.close {
   padding-right: 15px;
   padding-left: 15px;
   margin-bottom: 20px;
-  background-color: #541f14;
+  background-color: #fefefe;
   border-radius: 4px;
 }
 
@@ -4373,7 +4373,7 @@ a.list-group-item.active > .badge,
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #541f14;
+  background-color: #eee;
 }
 
 .jumbotron h1 {
