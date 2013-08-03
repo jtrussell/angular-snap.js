@@ -8,7 +8,7 @@ angular.module('snap')
       , initStoreForId
       , resolveInStoreById;
 
-    exports.get = function(id) {
+    exports.getSnapper = function(id) {
       id = id || DEFAULT_SNAPPER_ID;
       if(!snapperStore.hasOwnProperty(id)) {
         initStoreForId(id);
@@ -29,7 +29,7 @@ angular.module('snap')
 
     exports.toggle = function(side, id) {
       id = id || DEFAULT_SNAPPER_ID;
-      exports.get().then(function(snapper) {
+      exports.getSnapper().then(function(snapper) {
         if(side === snapper.state().state) {
           exports.close(side);
         } else {
@@ -40,14 +40,14 @@ angular.module('snap')
 
     exports.open = function(side, id) {
       id = id || DEFAULT_SNAPPER_ID;
-      exports.get().then(function(snapper) {
+      exports.getSnapper().then(function(snapper) {
         snapper.open(side);
       });
     };
 
     exports.close = function(id) {
       id = id || DEFAULT_SNAPPER_ID;
-      exports.get().then(function(snapper) {
+      exports.getSnapper().then(function(snapper) {
         snapper.close();
       });
     };

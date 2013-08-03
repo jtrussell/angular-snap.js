@@ -14,7 +14,7 @@ describe('Service: snapRemote', function() {
 
   describe('api', function() {
     it('should have a get method', function() {
-      expect(snapRemote.get).toEqual(jasmine.any(Function));
+      expect(snapRemote.getSnapper).toEqual(jasmine.any(Function));
     });
 
     it('should have a register method', function() {
@@ -33,15 +33,15 @@ describe('Service: snapRemote', function() {
       expect(snapRemote.close).toEqual(jasmine.any(Function));
     });
 
-    describe('get', function() {
+    describe('getSnapper', function() {
       it('should return a promise', function() {
-        expect(snapRemote.get().then).toEqual(jasmine.any(Function));
+        expect(snapRemote.getSnapper().then).toEqual(jasmine.any(Function));
       });
 
       it('should resolve to the regisetered object', inject(function($rootScope) {
         var resolvedSnapper;
 
-        snapRemote.get().then(function(snapper) {
+        snapRemote.getSnapper().then(function(snapper) {
           resolvedSnapper = snapper;
         });
 

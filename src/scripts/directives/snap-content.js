@@ -21,7 +21,7 @@ angular.module('snap')
         // watch snapOptions for updates
         if(angular.isDefined(attrs.snapOptions) && attrs.snapOptions) {
           scope.$watch(attrs.snapOptions, function(newSnapOptions) {
-            snapRemote.get().then(function(snapper) {
+            snapRemote.getSnapper().then(function(snapper) {
               snapper.settings(newSnapOptions);
             });
           }, true);
