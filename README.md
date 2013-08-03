@@ -143,6 +143,46 @@ Used to easily make a button to close the opened drawer.
 <button snap-close>Close Snap</button>
 ```
 
+## Services
+
+### `snapRemote`
+
+The "remote control" if you will. This service gives you programmatic access to
+the snapper instance. Check out the [Snap.js docs](https://github.com/jakiestfu/Snap.js) for all the fancy things
+you might want to do with your snapper instance.
+
+The `snapRemote` service provides these handy methods:
+
+#### `snapRemote.getSnapper()`
+
+Returns a promise to a snapper instance:
+
+```javascript
+snapRemote.getSnapper().then(function(snapper) {
+  // Do something with snapper
+});
+```
+
+#### `snapRemote.register(snapper)`
+
+Used internally to register snapper instances with this service. You could use
+this method if you were creating your own snapper instance but that's not super
+likely if you're already working with `angular-snap.js`.
+
+#### `snapRemote.toggle(side)`
+
+Change the open/closed state of your drawer, `side` should be either "right" or
+"left".
+
+#### `snapRemote.open(side)`
+
+Opens the drawer on "side" if it isn't already open. I.e. `snapRemote.open('left')` will
+slide your content to the right, thereby opening the left hand drawer.
+
+#### `snapRemote.close()`
+
+Closes the drawer if it's open.
+
 ## Live Examples
 
 _(more coming soon)_
