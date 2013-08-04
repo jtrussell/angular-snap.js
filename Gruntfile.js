@@ -44,6 +44,10 @@ module.exports = function(grunt) {
       }
     },
 
+    clean: {
+      dist: ['dist/*']
+    },
+
     less: {
       production: {
         options: {
@@ -79,21 +83,66 @@ module.exports = function(grunt) {
           'dist/angular-snap.min.js': 'dist/angular-snap.js'
         }
       }
+    },
+
+    copy: {
+      dist: {
+        src: 'LICENSE-MIT',
+        dest: 'dist/'
+      }
+    },
+
+    bower: {
+      dist: {
+        dest: 'dist/bower.json',
+        contents: [
+          '{',
+          '  "name": "angular-snap",',
+          '  "version": "<%= pkg.version %>",',
+          '  "main": [',
+          '    "angular-snap.js",',
+          '    "angular-snap.min.js",',
+          '    "angular-snap.css",',
+          '    "angular-snap.min.css"',
+          '  ],',
+          '  "ignore": [',
+          '    "README.md"',
+          '  ],',
+          '  "dependencies": {',
+          '    "snapjs": "latest"',
+          '  }',
+          '}'
+        ].join('\n')
+      }
     }
   });
 
   // Load plugins
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('matchdep')
+    .filterDev('grunt-*')
+    .forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('test', ['karma']);
+  grunt.registerMultiTask('bower', 'Write out a bower.json file for distribution', function() {
+    grunt.file.write(this.data.dest, this.data.contents);
+    grunt.log.writeln('File "' + this.data.dest + '" created.');
+  });
 
-  // Register task(s)
-  grunt.registerTask('default', [
-    'jshint',
-    'test',
+  grunt.registerTask('test', [
+    'karma'
+  ]);
+
+  grunt.registerTask('dist', [
+    'clean',
     'less',
     'concat',
-    'uglify'
+    'uglify',
+    'copy',
+    'bower'
+  ]);
+
+  grunt.registerTask('default', [
+    'test',
+    'dist'
   ]);
 
 };
