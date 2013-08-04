@@ -30,9 +30,6 @@ angular.module('snap')
           element.wrap('<div class="snap-drawers" />');
         }
 
-        // Get the width of element[0] and apply it to the shelf
-        // ...
-
       }
     };
   });

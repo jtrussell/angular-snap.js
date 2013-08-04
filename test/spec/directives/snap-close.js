@@ -18,19 +18,15 @@ describe('Directive: snapClose', function() {
   beforeEach(inject(function($rootScope, $compile) {
     scope = $rootScope.$new();
 
-    scope.snapper = {
-      close: angular.noop
-    };
-
     element = angular.element(button);
     element = $compile(element)(scope);
   }));
 
   describe('behaviour', function() {
-    it('should call snapper close method', function() {
-      spyOn(scope.snapper, 'close');
+    it('should delegate to the snapRemote service', inject(function(snapRemote) {
+      spyOn(snapRemote, 'close');
       element[0].click();
-      expect(scope.snapper.close).toHaveBeenCalled();
-    });
+      expect(snapRemote.close).toHaveBeenCalled();
+    }));
   });
 });

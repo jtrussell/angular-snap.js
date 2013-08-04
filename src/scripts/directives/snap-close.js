@@ -1,15 +1,14 @@
 angular.module('snap')
-  .directive('snapClose', function() {
+  .directive('snapClose', ['$rootScope', 'snapRemote', function($rootScope, snapRemote) {
     'use strict';
     return {
       restrict: 'A',
       link: function (scope, element, attrs) {
         element.bind('click', function() {
-          if (scope.snapper !== undefined) {
-            scope.snapper.close();
-          }
+          // Wrap in anonymous function for easier testing
+          snapRemote.close();
+          $rootScope.$digest();
         });
       }
     };
-    
-  });
+  }]);
