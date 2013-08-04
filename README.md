@@ -1,8 +1,6 @@
 # Angular Snap.js [![Build Status](https://travis-ci.org/jtrussell/angular-snap.js.png?branch=master)](https://travis-ci.org/jtrussell/angular-snap.js)
 > Angular directive for [Snap.js](https://github.com/jakiestfu/Snap.js). 
 
-_(work in progress)_
-
 ## What is it?
 
 A pretty thin wrapper around [snap.js](https://github.com/jakiestfu/Snap.js) plus some handy styles to make everything work out of the box.
