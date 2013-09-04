@@ -2,6 +2,10 @@
   "name": "angular-snap-dev",
   "version": "1.0.0-rc.2",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jtrussell/angular-snap.js.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
