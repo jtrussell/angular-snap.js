@@ -2,11 +2,10 @@ angular.module('snap')
   .directive('snapContent', ['snapRemote', function (snapRemote) {
     'use strict';
     return {
-      template: '<div class="snap-content" ng-transclude></div>',
-      transclude: true,
-      replace: true,
       restrict: 'AE',
       link: function postLink(scope, element, attrs) {
+        element.addClass('snap-content');
+
         var snapOptions = {
           element: element[0]
         };
