@@ -2,11 +2,9 @@ angular.module('snap')
   .directive('snapDrawer', function () {
     'use strict';
     return {
-      template: '<div class="snap-drawer" ng-transclude></div>',
-      transclude: true,
-      replace: true,
       restrict: 'AE',
       link: function(scope, element, attrs) {
+        element.addClass('snap-drawer');
 
         // Don't force a `snap-drawers` wrapper when we only want to use a
         // single shelf
