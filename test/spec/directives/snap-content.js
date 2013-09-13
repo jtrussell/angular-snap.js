@@ -22,7 +22,7 @@ describe('Directive: snapContent', function() {
     snapperDummy = {
       settings: jasmine.createSpy('settings')
     };
-    
+
     SnapSpy = jasmine.createSpy('Snap').andReturn(snapperDummy);
     window.Snap = SnapSpy;
   });
@@ -112,6 +112,12 @@ describe('Directive: snapContent', function() {
 
     it('should have class names our stylesheets rely on', function() {
       expect(element.hasClass('snap-content')).toBe(true);
+    });
+  });
+
+  describe('cleanup', function() {
+    it('should remove stale snapper intances when $destroyed', function() {
+      console.log('TODO: it should remove stale snapper instances when $destroyed');
     });
   });
 

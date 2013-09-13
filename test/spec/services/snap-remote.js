@@ -21,6 +21,10 @@ describe('Service: snapRemote', function() {
       expect(snapRemote.register).toEqual(jasmine.any(Function));
     });
 
+    it('should have an unregister method', function() {
+      expect(snapRemote.unregister).toEqual(jasmine.any(Function));
+    });
+
     it('should have a toggle method', function() {
       expect(snapRemote.toggle).toEqual(jasmine.any(Function));
     });
@@ -50,6 +54,12 @@ describe('Service: snapRemote', function() {
 
         expect(resolvedSnapper.foo).toBe('bar');
       }));
+    });
+
+    describe('unregister', function() {
+      it('should undo a call to register', function() {
+        console.log('TODO: it should undo a call to register');
+      });
     });
 
     describe('close', function() {

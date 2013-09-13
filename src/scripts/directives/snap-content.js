@@ -25,6 +25,10 @@ angular.module('snap')
             });
           }, true);
         }
+
+        scope.$on('$destroy', function() {
+          snapRemote.unregister();
+        });
       }
     };
   }]);

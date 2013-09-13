@@ -27,6 +27,13 @@ angular.module('snap')
       resolveInStoreById(snapper, id);
     };
 
+    exports.unregister = function(id) {
+      id = id || DEFAULT_SNAPPER_ID;
+      if(snapperStore.hasOwnProperty(id)) {
+        delete snapperStore[id];
+      }
+    };
+
     exports.toggle = function(side, id) {
       id = id || DEFAULT_SNAPPER_ID;
       exports.getSnapper().then(function(snapper) {
