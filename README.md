@@ -181,11 +181,13 @@ slide your content to the right, thereby opening the left hand drawer.
 
 Closes the drawer if it's open.
 
-## Live Examples
+## Examples
 
-_(more coming soon)_
+Check out our [gh-pages](http://jtrussell.github.io/angular-snap.js/). The source is not minified.
 
-For now, check out our gh-pages. The source is not minified.
+We're starting to add focused examples [here](https://github.com/jtrussell/angular-snap.js/tree/master/examples)
+(also to be used for e2e tests). If you'd like to see a particular use case that doesn't yet have an example please open
+an issue.
 
 ## License
 
