@@ -13,7 +13,7 @@ module.exports = function(config) {
       'test/spec/**/*.js'
     ],
     browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
-    reporters: ['progress'],
+    reporters: [process.env.TRAVIS ? 'dots' : 'progress'],
     plugins: [
       'karma-jasmine',
       'karma-chrome-launcher',
