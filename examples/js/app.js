@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp', ['snap', 'myApp.controllers']).
+angular.module('myApp', ['demo', 'snap', 'myApp.controllers']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/index', {
@@ -11,6 +11,10 @@ angular.module('myApp', ['snap', 'myApp.controllers']).
       })
       .when('/ex-two-drawers', {
         templateUrl: 'partials/ex-two-drawers.html'
+      })
+      .when('/ex-remote', {
+        templateUrl: 'partials/ex-remote.html',
+        controller: 'ExRemoteCtrl'
       })
       .otherwise({redirectTo: '/index'});
   }]);
