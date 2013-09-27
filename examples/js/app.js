@@ -7,8 +7,10 @@ angular.module('myApp', ['snap', 'myApp.controllers']).
         templateUrl: 'partials/index.html'
       })
       .when('/ex-basic', {
-        templateUrl: 'partials/ex-basic.html',
-        controller: 'ExBasicCtrl'
+        templateUrl: 'partials/ex-basic.html'
+      })
+      .when('/ex-two-drawers', {
+        templateUrl: 'partials/ex-two-drawers.html'
       })
       .otherwise({redirectTo: '/index'});
   }]);
