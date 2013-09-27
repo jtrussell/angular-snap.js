@@ -1,10 +1,6 @@
 'use strict';
 
-angular.module('myApp.controllers', []).
-
-  controller('ExBasicCtrl', [function() {
-    // You were expecting maybe The Adams Family?
-  }])
+angular.module('myApp.controllers', [])
 
   // That's all folks
   ;
