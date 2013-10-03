@@ -1,0 +1,27 @@
+<snap-drawers>
+  <div snap-drawer>
+    Left Drawer Content
+  </div>
+  <div snap-drawer="right">
+    Right Drawer Content
+  </div>
+</snap-drawers>
+
+<snap-content snap-options="snapOpts">
+  Main Content
+
+  <div>
+    <button ng-click="disable('left')">Disable Left Drawer</button>
+    <button ng-click="disable('right')">Disable Right Drawer</button>
+  </div>
+
+  <div>
+    <button ng-click="enable()">Enable Drawers</button>
+  </div>
+
+  <div>
+    <button snap-toggle>Toggle Left Drawer</button>
+    <button snap-toggle="right">Toggle Right Drawer</button>
+  </div>
+</snap-content>
+
