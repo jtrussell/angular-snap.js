@@ -1,8 +1,7 @@
-'use strict';
-
 angular.module('demo', []);
 
 angular.module('demo').factory('logger', function() {
+  'use strict';
   var exports = {};
 
   var getConsole = function() {
