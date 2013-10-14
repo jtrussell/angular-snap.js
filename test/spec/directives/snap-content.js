@@ -1,4 +1,4 @@
-/*global describe, beforeEach, module, jasmine, inject, angular, it, expect */
+/*global describe, beforeEach, module, jasmine, inject, angular, it, expect, spyOn */
 /*jshint node:true */
 
 'use strict';
@@ -13,7 +13,6 @@ describe('Directive: snapContent', function() {
     ].join('')
     , element
     , rootScope
-    , scope
     , compile
     , snapperDummy
     , SnapSpy;
@@ -33,7 +32,6 @@ describe('Directive: snapContent', function() {
 
     element = angular.element(tpl);
     element = compile(element)(rootScope);
-    //element = element.children(); // snap-content does not replace
   }));
 
   describe('basics', function() {
@@ -58,6 +56,7 @@ describe('Directive: snapContent', function() {
     });
 
     describe('custom options', function() {
+      var scope;
       beforeEach(function() {
         scope = rootScope.$new();
         scope.opts = {
@@ -116,9 +115,16 @@ describe('Directive: snapContent', function() {
   });
 
   describe('cleanup', function() {
-    it('should remove stale snapper intances when $destroyed', function() {
-      console.log('TODO: it should remove stale snapper instances when $destroyed');
-    });
+    it('should remove stale snapper instances when scopes are $destoryed', inject(function(snapRemote) {
+      var scope = rootScope.$new();
+      spyOn(snapRemote, 'unregister');
+
+      element = angular.element(tpl);
+      element = compile(element)(scope);
+
+      scope.$destroy();
+      expect(snapRemote.unregister).toHaveBeenCalled();
+    }));
   });
 
 
