@@ -57,9 +57,24 @@ describe('Service: snapRemote', function() {
     });
 
     describe('unregister', function() {
-      it('should undo a call to register', function() {
-        console.log('TODO: it should undo a call to register');
-      });
+      it('should undo a call to register', inject(function($rootScope) {
+        var resolvedSnapper;
+
+        snapRemote.register({shouldBe: 'dead'});
+        $rootScope.$apply();
+
+        snapRemote.unregister();
+        $rootScope.$apply();
+
+        snapRemote.getSnapper().then(function(snapper) {
+          resolvedSnapper = snapper;
+        });
+
+        snapRemote.register({shouldBe: 'alive'});
+        $rootScope.$apply();
+
+        expect(resolvedSnapper.shouldBe).toBe('alive');
+      }));
     });
 
     describe('close', function() {
