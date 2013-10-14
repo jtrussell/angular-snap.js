@@ -186,7 +186,7 @@ Closes the drawer if it's open.
 Check out our [gh-pages](http://jtrussell.github.io/angular-snap.js/). The source is not minified.
 
 We're starting to add focused examples [here](https://github.com/jtrussell/angular-snap.js/tree/master/examples)
-(also to be used for e2e tests). If you'd like to see a particular use case that doesn't yet have an example please open
+(also to be used for e2e tests). If you'd like to see a particular usage that doesn't yet have an example please open
 an issue.
 
 ## License
