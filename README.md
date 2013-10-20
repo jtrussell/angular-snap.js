@@ -189,6 +189,9 @@ We're starting to add focused examples [here](https://github.com/jtrussell/angul
 (also to be used for e2e tests). If you'd like to see a particular usage that doesn't yet have an example please open
 an issue.
 
+Also, I will maintain a [template](http://plnkr.co/edit/VeQ9F9?p=preview) on plnkr.co that can be used
+for reporting issues and building examples.
+
 ## License
 
 Copyright 2013 Justin Russell
