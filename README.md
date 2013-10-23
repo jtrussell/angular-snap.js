@@ -191,6 +191,8 @@ Here are some plunks to wet your whistle:
 - [Using the `snapRemote` service to add event listeners](http://plnkr.co/edit/I8IBAdpkF6OlEqtx94pT?p=preview)
 - [A small directive to set the allowed drag area](http://plnkr.co/edit/pqlsmh?p=preview)
 
+Feel free to open an issue if you'd like to see other demos.
+
 Also, I will maintain a [template](http://plnkr.co/edit/VeQ9F9?p=preview) on plnkr.co that can be used
 for reporting issues and building examples.
 
