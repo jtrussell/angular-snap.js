@@ -84,6 +84,8 @@ This just happens behind the scenes when you have a single drawer.
 Your main content goes here, this is the stuff you slide left or right to make
 your `snap-drawers` visible.
 
+*Note that the angular-snap styles do not give `snap-content` a background color.*
+
 ```html
 <div snap-drawer>...</div>
 
