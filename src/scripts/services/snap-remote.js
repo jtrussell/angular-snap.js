@@ -36,25 +36,25 @@ angular.module('snap')
 
     exports.toggle = function(side, id) {
       id = id || DEFAULT_SNAPPER_ID;
-      exports.getSnapper().then(function(snapper) {
+      exports.getSnapper(id).then(function(snapper) {
         if(side === snapper.state().state) {
-          exports.close(side);
+          exports.close(id);
         } else {
-          exports.open(side);
+          exports.open(side, id);
         }
       });
     };
 
     exports.open = function(side, id) {
       id = id || DEFAULT_SNAPPER_ID;
-      exports.getSnapper().then(function(snapper) {
+      exports.getSnapper(id).then(function(snapper) {
         snapper.open(side);
       });
     };
 
     exports.close = function(id) {
       id = id || DEFAULT_SNAPPER_ID;
-      exports.getSnapper().then(function(snapper) {
+      exports.getSnapper(id).then(function(snapper) {
         snapper.close();
       });
     };
