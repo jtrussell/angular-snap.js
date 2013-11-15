@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.0.7",
-    "angular-snap": "~1.0.0-rc.1",
+    "angular-snap": "~1.0.1",
     "es5-shim": "~2.1.0",
     "json3": "~3.2.4"
   }
