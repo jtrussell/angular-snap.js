@@ -7,7 +7,7 @@ describe('Directive: snapToggle', function() {
   beforeEach(module('snap'));
 
   var button = '<button snap-toggle>foo</button>'
-    , rightButton = '<button snap-toggle="right">foo</button>'
+    , rightButton = '<button snap-toggle="right" snap-id="\'mySnapId\'">foo</button>'
     , snapRemote
     , compile
     , scope;
@@ -24,14 +24,16 @@ describe('Directive: snapToggle', function() {
       var element = angular.element(button);
       element = compile(element)(scope);
       element[0].click();
-      expect(snapRemote.toggle).toHaveBeenCalledWith('left');
+      expect(snapRemote.toggle.mostRecentCall.args[0]).toEqual('left');
+      expect(snapRemote.toggle.mostRecentCall.args[1]).toBeUndefined();
     }));
 
     it('should call snapper toggle method on the right snap', inject(function($rootScope, $compile) {
       var element = angular.element(rightButton);
       element = compile(element)(scope);
       element[0].click();
-      expect(snapRemote.toggle).toHaveBeenCalledWith('right');
+      expect(snapRemote.toggle.mostRecentCall.args[0]).toEqual('right');
+      expect(snapRemote.toggle.mostRecentCall.args[1]).toEqual('mySnapId');
     }));
   });
 });

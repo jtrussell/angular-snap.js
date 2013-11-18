@@ -4,12 +4,15 @@ angular.module('snap')
       return {
         restrict: 'A',
         link: function (scope, element, attrs) {
+          var snapId = attrs.snapId
+            , snapSide = attrs.snapToggle || 'left';
+
+          if(!!snapId) {
+            snapId = scope.$eval(snapId);
+          }
+
           element.bind('click', function() {
-            if (attrs.snapToggle) {
-              snapRemote.toggle(attrs.snapToggle);
-            } else {
-              snapRemote.toggle('left');
-            }
+            snapRemote.toggle(snapSide, snapId);
             $rootScope.$digest();
           });
         }
