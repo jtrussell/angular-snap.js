@@ -93,6 +93,39 @@ describe('Directive: snapContent', function() {
       });
     });
 
+    describe('snappers by id', function() {
+      beforeEach(inject(function(snapRemote) {
+        var scope = rootScope.$new();
+        scope.snapIdFromScope = 'mySecondSnap';
+
+        tpl = [
+          '<div>',
+            '<div id="myFirstSnap" snap-content snap-id="\'myFirstSnap\'">',
+              'some stuff',
+            '</div>',
+            '<div id="mySecondSnap" snap-content snap-id="snapIdFromScope">',
+              'more stuff',
+            '</div>',
+          '</div>'
+        ].join('');
+
+        spyOn(snapRemote, 'register').andCallThrough();
+
+        element = angular.element(tpl);
+        element = compile(element)(scope);
+      }));
+
+      it('should use the "snap-id" attribute to register snappers', inject(function(snapRemote) {
+        expect(snapRemote.register.calls.length).toEqual(2);
+        expect(snapRemote.register.calls[0].args[1]).toEqual('myFirstSnap');
+        expect(snapRemote.register.calls[1].args[1]).toEqual('mySecondSnap');
+      }));
+
+      it('should allow us to get a specific snapper by id', function() {
+        // ...
+      });
+    });
+
   });
 
   describe('Element level directive', function() {

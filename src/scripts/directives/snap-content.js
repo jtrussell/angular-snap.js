@@ -10,12 +10,17 @@ angular.module('snap')
           element: element[0]
         };
 
+        var snapId = attrs.snapId;
+        if(!!snapId) {
+          snapId = scope.$eval(attrs.snapId);
+        }
+
         // override snap options if some provided in snap-options attribute
         if(angular.isDefined(attrs.snapOptions) && attrs.snapOptions) {
           angular.extend(snapOptions, scope.$eval(attrs.snapOptions));
         }
 
-        snapRemote.register(new window.Snap(snapOptions));
+        snapRemote.register(new window.Snap(snapOptions), snapId);
 
         // watch snapOptions for updates
         if(angular.isDefined(attrs.snapOptions) && attrs.snapOptions) {
@@ -27,7 +32,7 @@ angular.module('snap')
         }
 
         scope.$on('$destroy', function() {
-          snapRemote.unregister();
+          snapRemote.unregister(snapId);
         });
       }
     };
