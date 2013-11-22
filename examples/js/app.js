@@ -20,5 +20,8 @@ angular.module('myApp', ['demo', 'snap', 'myApp.controllers']).
         templateUrl: 'partials/ex-options.html',
         controller: 'ExOptionsCtrl'
       })
+      .when('/ex-two-snappers', {
+        templateUrl: 'partials/ex-two-snappers.html'
+      })
       .otherwise({redirectTo: '/index'});
   }]);

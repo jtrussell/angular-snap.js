@@ -1,0 +1,16 @@
+<snap-drawer>
+  Outer drawer stuff!
+  <button snap-toggle snap-id="'inner-snap'">Toggle Inner</button>
+</snap-drawer>
+
+<snap-content snap-id="'outer-snap'" snap-options="{tapToClose: false}">
+  <snap-drawer>
+    Inner drawer stuff!
+  </snap-drawer>
+
+  <snap-content snap-id="'inner-snap'" snap-options="{tapToClose: false}">
+    Inner Snap Content
+    <button snap-toggle snap-id="'outer-snap'">Toggle Outer</button>
+  </snap-content>
+</snap-content>
+
