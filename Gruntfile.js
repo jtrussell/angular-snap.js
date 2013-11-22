@@ -117,6 +117,22 @@ module.exports = function(grunt) {
           '}'
         ].join('\n')
       }
+    },
+
+    connect: {
+      examples: {
+        options: {
+          port: 9000,
+          base: 'examples',
+          open: 'http://localhost:9000/index.html'
+        }
+      }
+    },
+
+    open: {
+      examples: {
+        path: 'http://localhost:8080/index.html'
+      }
     }
   });
 
@@ -144,7 +160,8 @@ module.exports = function(grunt) {
   grunt.registerTask('examples', [
     'clean:examples',
     'dist',
-    'copy-examples-lib'
+    'copy-examples-lib',
+    'connect:examples:keepalive'
   ]);
 
   grunt.registerTask('dist', [
