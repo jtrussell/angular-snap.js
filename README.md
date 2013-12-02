@@ -104,6 +104,8 @@ And this is cool too:
 </snap-content>
 ```
 
+#### Options
+
 You can pass initialization parameters to the `Snap` constructor using the
 `snap-options` attribute on the same element with the `snap-contents` directive.
 
@@ -124,6 +126,32 @@ In your view:
 The `snap-content` directive will watch your `snap-options` object for runtime
 changes and update itself as you make them.
 
+#### Multiples
+
+You may want to have more than one `snap-content` on the page at once. To
+distinguish between them you'll need to use the `snap-id` attribute. This should
+evaluate to string.
+
+```javascript
+<snap-drawer>
+  foo drawer
+</snap-drawer>
+
+<snap-content snap-id="'foo'">
+  <snap-drawer>
+    bar drawer
+  </snap-drawer>
+
+  <snap-content snap-id="'bar'">
+    bar stuff
+  </snap-content>
+
+</snap-content>
+```
+
+You can use the `snap-id` attribute with single snapper setups too if you're
+into naming things.
+
 
 ### snap-toggle
 
@@ -135,6 +163,9 @@ Used to easily make a button toggle the snap status.
 
 Note that the default value for `snap-toggle` is `left`. Set it to `right` to toggle the right drawer.
 
+The directive will honor a `snap-id` attribute when present to explicitly tie it
+to a snapper instance.
+
 ### snap-close
 
 Used to easily make a button to close the opened drawer.
@@ -142,6 +173,9 @@ Used to easily make a button to close the opened drawer.
 ```html
 <button snap-close>Close Snap</button>
 ```
+
+The directive will honor a `snap-id` attribute when present to explicitly tie it
+to a snapper instance.
 
 ## Services
 
@@ -153,7 +187,7 @@ you might want to do with your snapper instance.
 
 The `snapRemote` service provides these handy methods:
 
-#### `snapRemote.getSnapper()`
+#### `snapRemote.getSnapper([snapId])`
 
 Returns a promise to a snapper instance:
 
@@ -163,25 +197,41 @@ snapRemote.getSnapper().then(function(snapper) {
 });
 ```
 
-#### `snapRemote.register(snapper)`
+You may optionally pass an id string corresponding to the `snap-id` of one of
+your `snap-content`s.
+
+#### `snapRemote.register(snapper[, snapIdl])`
 
 Used internally to register snapper instances with this service. You could use
 this method if you were creating your own snapper instance but that's not super
 likely if you're already working with `angular-snap.js`.
 
-#### `snapRemote.toggle(side)`
+You may optionally pass an id string to register this snapper instance. You will
+need to use the same id with other `snapRemote` methods and the directives which
+allow for a `snap-id` attribute.
+
+#### `snapRemote.toggle(side[, snapId])`
 
 Toggles the open/closed state of your drawer, `side` should be either "right" or
 "left".
 
-#### `snapRemote.open(side)`
+You may optionally pass an id string corresponding to the `snap-id` of one of
+your `snap-content`s.
+
+#### `snapRemote.open(side[, snapId])`
 
 Opens the drawer on "side" if it isn't already open. I.e. `snapRemote.open('left')` will
 slide your content to the right, thereby opening the left hand drawer.
 
-#### `snapRemote.close()`
+You may optionally pass an id string corresponding to the `snap-id` of one of
+your `snap-content`s.
+
+#### `snapRemote.close([snapId])`
 
 Closes the drawer if it's open.
+
+You may optionally pass an id string corresponding to the `snap-id` of one of
+your `snap-content`s.
 
 ## Examples
 
