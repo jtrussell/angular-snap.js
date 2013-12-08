@@ -4,8 +4,12 @@
   "dependencies": {},
   "devDependencies": {
     "snapjs": "latest",
-    "angular": "~1.0.5",
-    "angular-scenario": "~1.0.5",
-    "angular-mocks": "~1.0.7"
+    "angular": "~1.2",
+    "angular-scenario": "~1.2",
+    "angular-mocks": "~1.2",
+    "angular-route": "~1.2"
+  },
+  "resolutions": {
+    "angular": "~1.2"
   }
 }

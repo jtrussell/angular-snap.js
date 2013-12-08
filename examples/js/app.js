@@ -1,5 +1,5 @@
 
-angular.module('myApp', ['demo', 'snap', 'myApp.controllers']).
+angular.module('myApp', ['ngRoute', 'demo', 'snap', 'myApp.controllers']).
   config(['$routeProvider', function($routeProvider) {
     'use strict';
     $routeProvider

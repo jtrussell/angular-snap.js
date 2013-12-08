@@ -148,6 +148,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('copy-examples-lib', function() {
     grunt.file.copy('test/components/angular/angular.js', 'examples/lib/angular/angular.js');
+    grunt.file.copy('test/components/angular-route/angular-route.js', 'examples/lib/angular-route/angular-route.js');
     grunt.file.copy('test/components/snapjs/snap.js', 'examples/lib/snapjs/snap.js');
     grunt.file.copy('dist/angular-snap.js', 'examples/lib/angular-snap/angular-snap.js');
     grunt.file.copy('dist/angular-snap.css', 'examples/lib/angular-snap/angular-snap.css');
