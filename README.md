@@ -251,6 +251,6 @@ for reporting issues and building examples.
 
 ## License
 
-Copyright 2013 Justin Russell
+Copyright 2013 Justin Russell @jusrussell
 
 Licensed under the MIT License
