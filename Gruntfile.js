@@ -111,7 +111,7 @@ module.exports = function(grunt) {
           '    "README.md"',
           '  ],',
           '  "dependencies": {',
-          '    "angular": "~1.0.5",',
+          '    "angular": "~1.2.4",',
           '    "snapjs": "latest"',
           '  }',
           '}'
