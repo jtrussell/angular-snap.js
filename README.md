@@ -106,7 +106,22 @@ And this is cool too:
 
 #### Options
 
-You can pass initialization parameters to the `Snap` constructor using the
+You can pass initialization parameters to the `Snap` constructor : 
+
+```javascript
+angular.module('myApp', ['snap'])
+  .config(function(snapRemoteProvider) {
+    snapRemoteProvider.globalOpts.disable = 'right';
+    // or
+    snapRemoteProvider.globalOpts = {
+      disable = 'right',
+      // ... others options
+    }
+  })
+```
+
+
+You can also use the
 `snap-options` attribute on the same element with the `snap-contents` directive.
 
 In your controller:
