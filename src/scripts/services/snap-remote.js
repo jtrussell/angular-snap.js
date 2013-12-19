@@ -1,5 +1,10 @@
 angular.module('snap')
-  .factory('snapRemote', ['$q', function($q) {
+.provider('snapRemote', function SnapRemoteProvider() {
+
+  // Global snap.js options
+  var opts = this.globalOpts = {}
+
+  this.$get = ['$q', function($q) {
     'use strict';
 
     var snapperStore = {}
@@ -7,6 +12,8 @@ angular.module('snap')
       , exports = {}
       , initStoreForId
       , resolveInStoreById;
+
+    exports.globalOpts = opts;
 
     exports.getSnapper = function(id) {
       id = id || DEFAULT_SNAPPER_ID;
@@ -72,4 +79,7 @@ angular.module('snap')
     };
 
     return exports;
-  }]);
+  }]
+
+  return this;
+});

@@ -37,6 +37,10 @@ describe('Service: snapRemote', function() {
       expect(snapRemote.close).toEqual(jasmine.any(Function));
     });
 
+    it('should have a global options attribute', function() {
+      expect(snapRemote.globalOpts).toBeDefined();
+    })
+
     describe('getSnapper', function() {
       it('should return a promise', function() {
         expect(snapRemote.getSnapper().then).toEqual(jasmine.any(Function));
