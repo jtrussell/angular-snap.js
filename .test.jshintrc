@@ -1,0 +1,31 @@
+{
+  "predef": [
+    "angular",
+    "beforeEach",
+    "describe",
+    "expect",
+    "inject",
+    "it",
+    "module"
+  ],
+  "browser": true,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": false,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": false,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "laxcomma": true,
+  "unused": false,
+  "white": false
+}

@@ -33,6 +33,12 @@ module.exports = function(grunt) {
       },
       gruntfile: ['Gruntfile.js'],
       src: ['src/**/*.js'],
+      test: {
+        options: {
+          jshintrc: '.test.jshintrc'
+        },
+        src: ['test/spec/**/*.js']
+      },
       examples: ['examples/js/*.js']
     },
 
@@ -175,6 +181,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('default', [
+    'jshint',
     'test',
     'dist'
   ]);
