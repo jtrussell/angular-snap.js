@@ -5,15 +5,15 @@
 
 /**
   * Define global snap options.
-  * Since the config phase is already done inside it(), 
+  * Since the config phase is already done inside it(),
   * I found nothing better than defining options out describe's scope
   * @see https://groups.google.com/forum/#!topic/angular/D00S1DqE3jM
   * @see http://jsfiddle.net/eitanp461/qTvMz/
   */
 var myApp = angular.module('snap').config(function(snapRemoteProvider){
-  snapRemoteProvider.globalOpts.disable = 'right';
-  snapRemoteProvider.globalOpts.overwritten = false;
-})
+  snapRemoteProvider.globalOptions.disable = 'right';
+  snapRemoteProvider.globalOptions.overwritten = false;
+});
 
 describe('Directive: snapContent', function() {
   beforeEach(module('snap'));

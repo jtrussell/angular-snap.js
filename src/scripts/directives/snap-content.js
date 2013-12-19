@@ -10,7 +10,7 @@ angular.module('snap')
           element: element[0]
         };
 
-        angular.extend(snapOptions, snapRemote.globalOpts);
+        angular.extend(snapOptions, snapRemote.globalOptions);
 
         var snapId = attrs.snapId;
         if(!!snapId) {

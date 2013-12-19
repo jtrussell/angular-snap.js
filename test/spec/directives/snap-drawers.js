@@ -1,6 +1,7 @@
-'use strict';
 
 describe('Directive: snapDrawers', function () {
+  'use strict';
+
   beforeEach(module('snap'));
 
   var tpl

@@ -111,9 +111,9 @@ You can pass initialization parameters to the `Snap` constructor :
 ```javascript
 angular.module('myApp', ['snap'])
   .config(function(snapRemoteProvider) {
-    snapRemoteProvider.globalOpts.disable = 'right';
+    snapRemoteProvider.globalOptions.disable = 'right';
     // or
-    snapRemoteProvider.globalOpts = {
+    snapRemoteProvider.globalOptions = {
       disable = 'right',
       // ... others options
     }

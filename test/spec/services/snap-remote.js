@@ -38,8 +38,8 @@ describe('Service: snapRemote', function() {
     });
 
     it('should have a global options attribute', function() {
-      expect(snapRemote.globalOpts).toBeDefined();
-    })
+      expect(snapRemote.globalOptions).toBeDefined();
+    });
 
     describe('getSnapper', function() {
       it('should return a promise', function() {
