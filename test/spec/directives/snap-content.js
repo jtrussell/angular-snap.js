@@ -3,6 +3,18 @@
 
 'use strict';
 
+/**
+  * Define global snap options.
+  * Since the config phase is already done inside it(), 
+  * I found nothing better than defining options out describe's scope
+  * @see https://groups.google.com/forum/#!topic/angular/D00S1DqE3jM
+  * @see http://jsfiddle.net/eitanp461/qTvMz/
+  */
+var myApp = angular.module('snap').config(function(snapRemoteProvider){
+  snapRemoteProvider.globalOpts.disable = 'right';
+  snapRemoteProvider.globalOpts.overwritten = false;
+})
+
 describe('Directive: snapContent', function() {
   beforeEach(module('snap'));
 
@@ -48,7 +60,9 @@ describe('Directive: snapContent', function() {
     describe('default options', function() {
       it('should create a new Snap instance', function() {
         expect(SnapSpy).toHaveBeenCalledWith({
-          element: jasmine.any(Object)
+          element: jasmine.any(Object),
+          disable: 'right',
+          overwritten: false
         });
 
         expect(SnapSpy.mostRecentCall.args[0].element.id).toBe('mySnapContent');
@@ -60,7 +74,8 @@ describe('Directive: snapContent', function() {
       beforeEach(function() {
         scope = rootScope.$new();
         scope.opts = {
-          customOpt: 'some custom option'
+          customOpt: 'some custom option',
+          overwritten: true
         };
 
         tpl = [
@@ -83,13 +98,20 @@ describe('Directive: snapContent', function() {
         expect(SnapSpy.mostRecentCall.args[0].element.id).toBe('mySnapContent');
       });
 
+      it('should inherit from global options', function() {
+        expect(SnapSpy.mostRecentCall.args[0].disable).toBeDefined();
+        expect(SnapSpy.mostRecentCall.args[0].disable).toBe('right');
+      });
+
+      it('should overwrite global Snap options', function() {
+        expect(SnapSpy.mostRecentCall.args[0].overwritten).toBe(true);
+      });
+
       it('should update Snap settings when configs are changed at runtime',
           function() {
         scope.opts.customOpt = 'some new custom option';
         scope.$apply();
-        expect(snapperDummy.settings).toHaveBeenCalledWith({
-          customOpt: 'some new custom option'
-        });
+        expect(snapperDummy.settings).toHaveBeenCalledWith(scope.opts);
       });
     });
 
