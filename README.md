@@ -192,6 +192,23 @@ Used to easily make a button to close the opened drawer.
 The directive will honor a `snap-id` attribute when present to explicitly tie it
 to a snapper instance.
 
+### snap-dragger
+
+Used to designate a specific element your the drag area. This will disable
+dragging outside the attached element. Available as an element level or
+attribute level directive.
+
+```html
+<snap-dragger>
+  Drag here to open your drawer!
+</snap-dragger>
+
+Dragging here does nothing!
+```
+
+Use `snap-id` if you have multiple snappers on the page. Note that you can only
+have a single dragger per `snap-content`.
+
 ## Services
 
 ### snapRemote
