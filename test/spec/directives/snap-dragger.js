@@ -3,7 +3,7 @@
 
 'use strict';
 
-ddescribe('Directive: snapDragger', function() {
+describe('Directive: snapDragger', function() {
   beforeEach(module('snap'));
 
   var tpl = [
