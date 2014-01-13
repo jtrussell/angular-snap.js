@@ -12,6 +12,9 @@ angular.module('myApp', ['ngRoute', 'demo', 'snap', 'myApp.controllers']).
       .when('/ex-two-drawers', {
         templateUrl: 'partials/ex-two-drawers.html'
       })
+      .when('/ex-dragger', {
+        templateUrl: 'partials/ex-dragger.html'
+      })
       .when('/ex-remote', {
         templateUrl: 'partials/ex-remote.html',
         controller: 'ExRemoteCtrl'
