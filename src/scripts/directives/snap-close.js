@@ -6,7 +6,7 @@ angular.module('snap')
       link: function (scope, element, attrs) {
         element.bind('click', function() {
           // Wrap in anonymous function for easier testing
-          snapRemote.close();
+          snapRemote.close(scope.$eval(attrs.snapId));
           $rootScope.$digest();
         });
       }
