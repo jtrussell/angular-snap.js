@@ -1,7 +1,7 @@
 /*global angular */
 
 (function() {
-  var version = [1, 3, 1]
+  var version = [1, 3, 2]
     , vObj = {
         full: version.join('.'),
         major: version[0],
