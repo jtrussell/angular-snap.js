@@ -1,6 +1,7 @@
 /*global angular */
 
 (function() {
+  'use strict';
   var version = [1, 3, 2]
     , vObj = {
         full: version.join('.'),

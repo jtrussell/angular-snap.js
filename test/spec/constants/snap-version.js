@@ -1,8 +1,8 @@
 /*global require, describe, beforeEach, module, inject, it, expect */
 
-'use strict';
-
 describe('Constant: SNAP_VERSION', function() {
+  'use strict';
+
   beforeEach(module('snap'));
 
   var version;
