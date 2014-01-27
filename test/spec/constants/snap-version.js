@@ -1,13 +1,10 @@
-/*global describe, beforeEach, module, inject, it, expect */
-/*jshint node:true */
+/*global require, describe, beforeEach, module, inject, it, expect */
 
 'use strict';
 
-var pkg = require('../../../package.json');
-
 describe('Constant: SNAP_VERSION', function() {
   beforeEach(module('snap'));
-  
+
   var version;
 
   beforeEach(inject(function(SNAP_VERSION) {
@@ -16,7 +13,7 @@ describe('Constant: SNAP_VERSION', function() {
 
   describe('The version constant', function() {
     it('should match the package.json version', function() {
-      expect(version).to.be(pkg.version);
+      expect(version.full).toBe(window.SNAP.version);
     });
   });
 });
