@@ -10,8 +10,15 @@
   * @see https://groups.google.com/forum/#!topic/angular/D00S1DqE3jM
   * @see http://jsfiddle.net/eitanp461/qTvMz/
   */
-var myApp = angular.module('snap').config(function(snapRemoteProvider){
-  snapRemoteProvider.globalOptions.disable = 'right';
+var myApp = angular.module('snap');
+
+myApp.config(function(snapRemoteProvider) {
+  snapRemoteProvider.globalOptions = {
+    disable: 'right'
+  };
+});
+
+myApp.config(function(snapRemoteProvider){
   snapRemoteProvider.globalOptions.overwritten = false;
 });
 
