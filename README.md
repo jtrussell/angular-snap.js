@@ -114,7 +114,7 @@ angular.module('myApp', ['snap'])
     snapRemoteProvider.globalOptions.disable = 'right';
     // or
     snapRemoteProvider.globalOptions = {
-      disable = 'right',
+      disable: 'right',
       // ... others options
     }
   })
