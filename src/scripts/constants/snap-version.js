@@ -2,7 +2,7 @@
 
 (function() {
   'use strict';
-  var version = [1, 3, 4]
+  var version = [1, 3, 5]
     , vObj = {
         full: version.join('.'),
         major: version[0],
