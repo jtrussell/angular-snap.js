@@ -1,17 +1,15 @@
 {
   "name": "angular-snap",
-  "version": "1.1.1",
+  "version": "1.4.0",
   "main": [
     "angular-snap.js",
-    "angular-snap.min.js",
-    "angular-snap.css",
-    "angular-snap.min.css"
+    "angular-snap.css"
   ],
   "ignore": [
     "README.md"
   ],
   "dependencies": {
-    "angular": "~1.0.5",
+    "angular": "~1.2.4",
     "snapjs": "latest"
   }
 }

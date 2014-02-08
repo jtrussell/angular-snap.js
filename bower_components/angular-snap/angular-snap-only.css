@@ -1,11 +1,3 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
 snap-content,
 [snap\:content],
 [snap-content],
@@ -19,9 +11,7 @@ snap-drawers,
 [data-snap-drawers],
 [x-snap-drawers],
 .snap-drawers,
-.x-snap-drawers,
-.snap-drawers,
-.snap-content {
+.x-snap-drawers {
   position: absolute;
   height: auto;
   top: 0;
@@ -36,8 +26,7 @@ snap-drawer,
 [data-snap-drawer],
 [x-snap-drawer],
 .snap-drawer,
-.x-snap-drawer,
-.snap-drawer {
+.x-snap-drawer {
   position: absolute;
   height: auto;
   top: 0;
@@ -55,33 +44,5 @@ snap-drawer,
   -moz-overflow-scrolling: touch;
   -o-overflow-scrolling: touch;
   overflow-scrolling: touch;
-  width: 265px;
-}
-.snap-content {
-  z-index: 2;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  -moz-overflow-scrolling: touch;
-  -o-overflow-scrolling: touch;
-  overflow-scrolling: touch;
-}
-.snap-drawer-left {
-  left: 0;
-  z-index: 1;
-}
-.snap-drawer-right {
-  right: 0;
-  z-index: 1;
-}
-.snapjs-left .snap-drawer-right,
-.snapjs-right .snap-drawer-left {
-  display: none;
-}
-.snapjs-expand-left .snap-drawer-left,
-.snapjs-expand-right .snap-drawer-right {
-  width: 100%;
+  width: 256px;
 }
