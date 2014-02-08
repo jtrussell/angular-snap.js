@@ -1,49 +1,11 @@
-.tall() {
-  height: auto;
-  top: 0;
-  bottom: 0;
-}
+@import "mixins.less";
 
-.wide() {
-  width: auto;
-  left: 0;
-  right: 0;
-}
-
-.absolute() {
-  position: absolute;
-}
-
-.relative() {
-  position: relative;
-}
-
-.transition(@transition) {
-  -webkit-transition: @transition;
-     -moz-transition: @transition;
-       -o-transition: @transition;
-          transition: @transition;
-}
-
-.overflow-scrolling(@scrolling) {
-  -webkit-overflow-scrolling: @scrolling;
-     -moz-overflow-scrolling: @scrolling;
-       -o-overflow-scrolling: @scrolling;
-          overflow-scrolling: @scrolling;
-}
-
-.translate3d(@x, @y, @z) {
-  -webkit-transform: translate3d(@x, @y, @z);
-     -moz-transform: translate3d(@x, @y, @z);
-       -o-transform: translate3d(@x, @y, @z);
-          transform: translate3d(@x, @y, @z);
-}
-
-.smooth-scroll() {
-  overflow: auto;
-  .transition(top .2s linear);
-  .transition(bottom .2s linear);
-  .overflow-scrolling(touch);
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 snap-content, [snap\:content], [snap-content], [data-snap-content], [x-snap-content], .snap-content, .x-snap-content,
@@ -59,6 +21,7 @@ snap-drawer, [snap\:drawer], [snap-drawer], [data-snap-drawer], [x-snap-drawer],
 .snap-drawer {
   .absolute;
   .tall;
+  overflow: auto;
   .smooth-scroll;
   width: 265px;
 }
@@ -66,6 +29,7 @@ snap-drawer, [snap\:drawer], [snap-drawer], [data-snap-drawer], [x-snap-drawer],
 .snap-content {
   z-index: 2;
   .translate3d(0, 0, 0);
+  overflow: auto;
   .overflow-scrolling(touch);
 }
 
