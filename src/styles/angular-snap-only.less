@@ -1,0 +1,16 @@
+@import "mixins.less";
+
+snap-content, [snap\:content], [snap-content], [data-snap-content], [x-snap-content], .snap-content, .x-snap-content,
+snap-drawers, [snap\:drawers], [snap-drawers], [data-snap-drawers], [x-snap-drawers], .snap-drawers, .x-snap-drawers {
+  .absolute;
+  .tall;
+  .wide;
+}
+
+snap-drawer, [snap\:drawer], [snap-drawer], [data-snap-drawer], [x-snap-drawer], .snap-drawer, .x-snap-drawer {
+  .absolute;
+  .tall;
+  overflow: auto;
+  .smooth-scroll;
+  width: 256px;
+}

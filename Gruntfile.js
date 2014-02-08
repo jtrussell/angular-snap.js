@@ -62,12 +62,14 @@ module.exports = function(grunt) {
           yuicompress: true
         },
         files: {
-          'dist/angular-snap.min.css': 'src/styles/angular-snap.less'
+          'dist/angular-snap.min.css': 'src/styles/angular-snap.less',
+          'dist/angular-snap-only.min.css': 'src/styles/angular-snap-only.less'
         }
       },
       debug: {
         files: {
-          'dist/angular-snap.css': 'src/styles/angular-snap.less'
+          'dist/angular-snap.css': 'src/styles/angular-snap.less',
+          'dist/angular-snap-only.css': 'src/styles/angular-snap-only.less'
         }
       }
     },
