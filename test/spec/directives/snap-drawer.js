@@ -17,17 +17,23 @@ describe('Directive: snapDrawer', function() {
       '</snap-drawer>'
     ].join('')]
     , element
-    , rootScope
-    , compile;
+    , scope
+    , mkEl;
+
+  beforeEach(inject(function($rootScope, $compile) {
+    scope = $rootScope.$new();
+
+    mkEl = function(tpl, scp) {
+      var $el = $compile(angular.element(tpl))(scp);
+      scp.$apply();
+      return $el;
+    };
+  }));
 
   angular.forEach(tpls, function(tpl) {
-    beforeEach(inject(function($rootScope, $compile) {
-      rootScope = $rootScope;
-      compile = $compile;
-
-      element = angular.element(tpl);
-      element = compile(element)(rootScope);
-    }));
+    beforeEach(function() {
+      element = mkEl(tpl, scope);
+    });
 
     describe('basics', function() {
       it('should show our shelf content', function() {
@@ -43,6 +49,28 @@ describe('Directive: snapDrawer', function() {
       it('should wrap itself in snap-drawers if it is not already', function() {
         expect(element.parent().hasClass('snap-drawers')).toBe(true);
       });
+    });
+  });
+
+  describe('multiples', function() {
+    var element, tpl = [
+      '<snap-drawers>',
+        '<div snap-drawer="left">',
+          'left side',
+        '</div>',
+        '<div snap-drawer="right">',
+          'right side',
+        '</div>',
+      '</snap-drawers>'
+    ].join('');
+
+    beforeEach(function() {
+      element = mkEl(tpl, scope);
+    });
+
+    it('should not wrap itself in extra drawers', function() {
+      expect(element.children().eq(0).hasClass('snap-drawers')).toBe(false);
+      expect(element.children().eq(1).html()).toBe('right side');
     });
   });
 
