@@ -3,7 +3,7 @@ angular.module('snap')
     'use strict';
     return {
       restrict: 'AE',
-      link: function(scope, element, attrs) {
+      compile: function(element, attrs) {
         element.addClass('snap-drawers');
       }
     };
