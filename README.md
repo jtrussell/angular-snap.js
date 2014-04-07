@@ -280,6 +280,10 @@ Feel free to open an issue if you'd like to see other demos.
 Also, I will maintain a [template](http://plnkr.co/edit/VeQ9F9?p=preview) on plnkr.co that can be used
 for reporting issues and building examples.
 
+## Getting Help
+
+Use the tag `angular-snap` on Stack Overflow. For quick things I can be reached on twitter @jusrussell. A plunk/jsbin/fiddle is worth a thousand words.
+
 ## License
 
 Copyright 2013 Justin Russell @jusrussell
