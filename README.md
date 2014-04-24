@@ -280,9 +280,19 @@ Feel free to open an issue if you'd like to see other demos.
 Also, I will maintain a [template](http://plnkr.co/edit/VeQ9F9?p=preview) on plnkr.co that can be used
 for reporting issues and building examples.
 
+## FAQ
+
+- **Why does the stuff in my drawers show through my actual content?** This repo
+  tries not to force more styles on you than it must, that includes a background
+  color on your `snap-content` element. If that element has a transparent
+  background the drawers will likely show through. Notice that most of the
+  examples here give the `snap-content` element some background color. Check out
+  [this plunk](http://plnkr.co/edit/p8nQeIscC3Eu8wjFhWqu?p=preview).
+
 ## Getting Help
 
-Use the tag `angular-snap` on Stack Overflow. For quick things I can be reached on twitter @jusrussell. A plunk/jsbin/fiddle is worth a thousand words.
+Use the tag `angular-snap` on Stack Overflow. For quick things I can be reached
+on twitter @jusrussell. A plunk/jsbin/fiddle is worth a thousand words.
 
 ## License
 
