@@ -4,6 +4,16 @@
 'use strict';
 
 describe('Directive: snapDragger', function() {
+
+  beforeEach(function() {
+    snapperDummy = {
+      settings: jasmine.createSpy('settings')
+    };
+
+    SnapSpy = jasmine.createSpy('Snap').andReturn(snapperDummy);
+    window.Snap = SnapSpy;
+  });
+
   beforeEach(module('snap'));
 
   var tpl = [
@@ -21,15 +31,6 @@ describe('Directive: snapDragger', function() {
     scope = $rootScope.$new();
     compile = $compile;
   }));
-
-  beforeEach(function() {
-    snapperDummy = {
-      settings: jasmine.createSpy('settings')
-    };
-
-    SnapSpy = jasmine.createSpy('Snap').andReturn(snapperDummy);
-    window.Snap = SnapSpy;
-  });
 
   describe('behaviour', function() {
     it('should update the snapper settings to use the dragger', function() {

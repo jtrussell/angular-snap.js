@@ -1,5 +1,5 @@
 angular.module('snap')
-  .directive('snapContent', ['snapRemote', function (snapRemote) {
+  .directive('snapContent', ['SnapConstructor', 'snapRemote', function (SnapConstructor, snapRemote) {
     'use strict';
     return {
       restrict: 'AE',
@@ -22,7 +22,7 @@ angular.module('snap')
           angular.extend(snapOptions, scope.$eval(attrs.snapOptions));
         }
 
-        snapRemote.register(new window.Snap(snapOptions), snapId);
+        snapRemote.register(new SnapConstructor(snapOptions), snapId);
 
         // watch snapOptions for updates
         if(angular.isDefined(attrs.snapOptions) && attrs.snapOptions) {
