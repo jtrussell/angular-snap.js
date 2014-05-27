@@ -265,6 +265,22 @@ Closes the drawer if it's open.
 You may optionally pass an id string corresponding to the `snap-id` of one of
 your `snap-content`s.
 
+### SnapConstructor
+
+An injectable copy of `window.Snap`. This is also available as a provider if you
+want to provide you own Snap construtor, users pulling in Snap.js with a module
+loader might find this useful.
+
+```
+var myApp = angular.module('myApp', ['snap']);
+
+myApp.config(function(SnapConstructorProvider) {
+  SnapConstructorProvider.use(window.Snap);
+});
+
+// Now SnapConstructor is injectible and works just like window.Snap
+```
+
 ## Examples
 
 Check out our [gh-pages](http://jtrussell.github.io/angular-snap.js/). The source is not minified.
