@@ -181,6 +181,16 @@ Note that the default value for `snap-toggle` is `left`. Set it to `right` to to
 The directive will honor a `snap-id` attribute when present to explicitly tie it
 to a snapper instance.
 
+By default `mouseup` and `mousedown` events are suppressed on elements with this
+directive to prevent a race condition with Snap.js's tap-to-close behavior. In
+practice this means you will not be able to drag a drawer open by starting your
+drag on a toggle button. If you want to keep `mouseup` and `mousedown` events
+use the `snap-unsafe` flag:
+
+```html
+<button snap-toggle snap-unsafe="true">Toggle Snap</button>
+```
+
 ### snap-close
 
 Used to easily make a button to close the opened drawer.
