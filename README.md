@@ -3,9 +3,24 @@
 
 ## What is it?
 
-A pretty thin wrapper around [snap.js](https://github.com/jakiestfu/Snap.js) plus some handy styles to make everything work out of the box.
+A wrapper around [snap.js](https://github.com/jakiestfu/Snap.js) for AngularJS
+plus some handy angular-specific styles to make everything work out of the box.
 
-__NOTE__: Built files are not included in this repo but can be found [here](https://github.com/jtrussell/angular-snap.js-bower).
+## How do I get it?
+
+If you're using bower as a package manager you're in luck:
+
+```
+bower install --save angular-snap
+```
+
+You may also grab the built files directly from
+[the dist repo](https://github.com/jtrussell/angular-snap.js-bower), or build
+this project with [grunt](http://gruntjs.com/): 
+
+```
+grunt dist
+```
 
 ## Directives Usage
 
@@ -314,6 +329,9 @@ for reporting issues and building examples.
   background the drawers will likely show through. Notice that most of the
   examples here give the `snap-content` element some background color. Check out
   [this plunk](http://plnkr.co/edit/p8nQeIscC3Eu8wjFhWqu?p=preview).
+
+- **Where are the built files?** They are
+  [here](https://github.com/jtrussell/angular-snap.js-bower), tagged by version.
 
 ## Getting Help
 
