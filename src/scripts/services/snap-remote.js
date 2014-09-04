@@ -67,6 +67,13 @@ angular.module('snap')
       });
     };
 
+    exports.expand = function(side, id) {
+      id = id || DEFAULT_SNAPPER_ID;
+      exports.getSnapper(id).then(function(snapper) {
+        snapper.expand(side);
+      });
+    };
+
     initStoreForId = function(id) {
       snapperStore[id] = {
         deferred: $q.defer(),
