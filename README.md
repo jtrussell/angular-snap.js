@@ -287,6 +287,11 @@ your `snap-content`s.
 
 Closes the drawer if it's open.
 
+#### `snapRemote.expand(side)`
+
+Expands the drawer to screens full size.
+
+
 You may optionally pass an id string corresponding to the `snap-id` of one of
 your `snap-content`s.
 
