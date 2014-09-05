@@ -37,6 +37,10 @@ describe('Service: snapRemote', function() {
       expect(snapRemote.close).toEqual(jasmine.any(Function));
     });
 
+    it('should have an expand method', function() {
+      expect(snapRemote.expand).toEqual(jasmine.any(Function));
+    });
+
     it('should have a global options attribute', function() {
       expect(snapRemote.globalOptions).toBeDefined();
     });
@@ -108,6 +112,21 @@ describe('Service: snapRemote', function() {
         $rootScope.$apply();
 
         expect(snapperMock.open).toHaveBeenCalled();
+      }));
+    });
+
+    describe('expand', function() {
+      it('should delegate to the snapper instance expand method', inject(function($rootScope) {
+        var snapperMock = {
+          expand: angular.noop
+        };
+
+        spyOn(snapperMock, 'expand');
+        snapRemote.expand();
+        snapRemote.register(snapperMock);
+        $rootScope.$apply();
+
+        expect(snapperMock.expand).toHaveBeenCalled();
       }));
     });
 
