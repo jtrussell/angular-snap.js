@@ -352,7 +352,7 @@ minimal plunk or jsbin (jsbin template provided below). If you're feeling
 particularly industrious you can also demonstrate that your issue is not present
 when using Snap.js without Angular Snap.
 
-- [jsbin template for Angular Spap](http://jsbin.com/gist/b634de597127b2230872?html,js,output)
+- [jsbin template for Angular Snap](http://jsbin.com/gist/b634de597127b2230872?html,js,output)
 - [jsbin template: Snap.js **without** Angular Snap](http://jsbin.com/gist/4437a9764fe0bec3c264?html,js,output)
 
 ## License
