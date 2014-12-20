@@ -122,6 +122,33 @@ describe('Directive: snapContent', function() {
       });
     });
 
+    describe('declarative options', function() {
+      var scope;
+      beforeEach(function() {
+        scope = rootScope.$new();
+
+        tpl = [
+          '<div id="mySnapContent" snap-content',
+              'snap-opt-resistance="0.3"',
+              'snap-opt-overwritten="true">',
+            'main stuffs',
+          '</div>'
+        ].join('\n');
+
+        element = angular.element(tpl);
+        element = compile(element)(scope);
+        element = element.children(); // snap-content does not replace
+      });
+
+      it('should pass forward snap-opt-* attrs to snap constructor', function() {
+        expect(SnapSpy.mostRecentCall.args[0].resistance).toBe(0.3);
+      });
+
+      it('should override default options', function() {
+        expect(SnapSpy.mostRecentCall.args[0].overwritten).toBe(true);
+      });
+    });
+
     describe('snappers by id', function() {
       beforeEach(inject(function(snapRemote) {
         var scope = rootScope.$new();
