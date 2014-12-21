@@ -127,10 +127,13 @@ describe('Directive: snapContent', function() {
       beforeEach(function() {
         scope = rootScope.$new();
 
+        scope.foobar = 6;
+
         tpl = [
           '<div id="mySnapContent" snap-content',
               'snap-opt-resistance="0.3"',
-              'snap-opt-overwritten="true">',
+              'snap-opt-overwritten="true"',
+              'snap-opt-variable="foobar">',
             'main stuffs',
           '</div>'
         ].join('\n');
@@ -146,6 +149,10 @@ describe('Directive: snapContent', function() {
 
       it('should override default options', function() {
         expect(SnapSpy.mostRecentCall.args[0].overwritten).toBe(true);
+      });
+
+      it('should allow for variable as values', function() {
+        expect(SnapSpy.mostRecentCall.args[0].variable).toBe(6);
       });
     });
 
