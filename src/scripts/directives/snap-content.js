@@ -6,11 +6,23 @@ angular.module('snap')
       link: function postLink(scope, element, attrs) {
         element.addClass('snap-content');
 
-        var snapOptions = {
-          element: element[0]
-        };
+        var snapOptions = angular.extend({}, snapRemote.globalOptions);
 
-        angular.extend(snapOptions, snapRemote.globalOptions);
+        // Get `snapOpt*` attrs, for now there is no *binding* going on here.
+        // We're just providing a more declarative way to set initial values.
+        angular.forEach(attrs, function(val, attr) {
+          if(attr.indexOf('snapOpt') === 0) {
+            attr = attr.substring(7);
+            if(attr.length) {
+              attr = attr[0].toLowerCase() + attr.substring(1);
+              snapOptions[attr] = scope.$eval(val);
+            }
+          }
+        });
+
+        // Always force the snap element to be the one this directive is
+        // attached to.
+        snapOptions.element = element[0];
 
         var snapId = attrs.snapId;
         if(!!snapId) {
