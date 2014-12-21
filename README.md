@@ -156,6 +156,22 @@ In your view:
 The `snap-content` directive will watch your `snap-options` object for runtime
 changes and update itself as you make them.
 
+Finally, you can set any of the available snap options as an attribute on the
+`snap-content` element by prefixing it with `snap-opt-`:
+
+```html
+<snap-content
+    snap-opt-disable="'right'"
+    snap-opt-tap-to-close="false">
+  ...
+</snap-content>
+```
+
+Currently, these attributes do not support any binding - they are read once when
+the directive is linked and used for Snap initialization. They can override
+your default snap options but should not be used to dynamically update snapper
+settings at runtime.
+
 #### Multiples
 
 You may want to have more than one `snap-content` on the page at once. To
