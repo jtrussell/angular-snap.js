@@ -154,6 +154,14 @@ describe('Directive: snapContent', function() {
       it('should allow for variable as values', function() {
         expect(SnapSpy.mostRecentCall.args[0].variable).toBe(6);
       });
+
+      it('should update the snapper when an option changes', function() {
+        scope.foobar = 23;
+        scope.$apply();
+        expect(snapperDummy.settings).toHaveBeenCalledWith(jasmin.objectContaining({
+          foobar: 23
+        }));
+      });
     });
 
     describe('snappers by id', function() {
