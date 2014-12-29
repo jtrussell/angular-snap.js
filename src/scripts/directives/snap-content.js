@@ -6,7 +6,26 @@ angular.module('snap')
       link: function postLink(scope, element, attrs) {
         element.addClass('snap-content');
 
+        var snapId = attrs.snapId;
+        if(!!snapId) {
+          snapId = scope.$eval(attrs.snapId);
+        }
+
         var snapOptions = angular.extend({}, snapRemote.globalOptions);
+
+        var watchAttr = function(val, attr) {
+          scope.$watch(function() {
+            return scope.$eval(val);
+          }, function(newVal, oldVal) {
+            if(angular.isDefined(oldVal) && newVal !== oldVal) {
+              snapRemote.getSnapper(snapId).then(function(snapper) {
+                var settingsUpdate = {};
+                settingsUpdate[attr] = newVal;
+                snapper.settings(settingsUpdate);
+              });
+            }
+          });
+        };
 
         // Get `snapOpt*` attrs, for now there is no *binding* going on here.
         // We're just providing a more declarative way to set initial values.
@@ -16,6 +35,7 @@ angular.module('snap')
             if(attr.length) {
               attr = attr[0].toLowerCase() + attr.substring(1);
               snapOptions[attr] = scope.$eval(val);
+              watchAttr(val, attr);
             }
           }
         });
@@ -23,11 +43,6 @@ angular.module('snap')
         // Always force the snap element to be the one this directive is
         // attached to.
         snapOptions.element = element[0];
-
-        var snapId = attrs.snapId;
-        if(!!snapId) {
-          snapId = scope.$eval(attrs.snapId);
-        }
 
         // override snap options if some provided in snap-options attribute
         if(angular.isDefined(attrs.snapOptions) && attrs.snapOptions) {

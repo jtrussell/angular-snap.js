@@ -156,10 +156,11 @@ describe('Directive: snapContent', function() {
       });
 
       it('should update the snapper when an option changes', function() {
+        scope.$apply();
         scope.foobar = 23;
         scope.$apply();
         expect(snapperDummy.settings).toHaveBeenCalledWith(jasmine.objectContaining({
-          foobar: 23
+          variable: 23
         }));
       });
     });
