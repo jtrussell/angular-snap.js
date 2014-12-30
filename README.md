@@ -380,6 +380,12 @@ when using Snap.js without Angular Snap.
 - [jsbin template for Angular Snap](http://jsbin.com/gist/b634de597127b2230872?html,js,output)
 - [jsbin template: Snap.js **without** Angular Snap](http://jsbin.com/gist/4437a9764fe0bec3c264?html,js,output)
 
+
+## Changelog
+
+- v1.7.0 2014-12-30 Add snap-opt-% attrs for more declarative syntax
+
+
 ## License
 
 Copyright 2013 Justin Russell @jusrussell
