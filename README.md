@@ -121,7 +121,7 @@ And this is cool too:
 
 #### Options
 
-You can pass initialization parameters to the `Snap` constructor : 
+Use the `snapRemoteProvider` to set Snap options globally:
 
 ```javascript
 angular.module('myApp', ['snap'])
@@ -134,7 +134,6 @@ angular.module('myApp', ['snap'])
     }
   })
 ```
-
 
 You can also use the
 `snap-options` attribute on the same element with the `snap-contents` directive.
@@ -167,10 +166,20 @@ Finally, you can set any of the available snap options as an attribute on the
 </snap-content>
 ```
 
-Currently, these attributes do not support any binding - they are read once when
-the directive is linked and used for Snap initialization. They can override
-your default snap options but should not be used to dynamically update snapper
-settings at runtime.
+Keep in mind these `snap-opt-*` attributes currently only support one-way
+binding. For example, suppose you have a scope variable called `tapEnabled`:
+
+```html
+<snap-content
+    snap-opt-tap-to-close="tapEnabled">
+  ...
+</snap-content>
+```
+
+Changes you make to `tapEnabled` will propagate through to the snapper settings,
+however, if the tap-to-close settings changes by some other means your variable
+will not be updated.
+
 
 #### Multiples
 
