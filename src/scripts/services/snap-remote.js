@@ -74,6 +74,20 @@ angular.module('snap')
       });
     };
 
+    exports.enable = function(id) {
+      id = id || DEFAULT_SNAPPER_ID;
+      exports.getSnapper(id).then(function(snapper) {
+        snapper.enable();
+      });
+    };
+
+    exports.disable = function(id) {
+      id = id || DEFAULT_SNAPPER_ID;
+      exports.getSnapper(id).then(function(snapper) {
+        snapper.disable();
+      });
+    };
+
     initStoreForId = function(id) {
       snapperStore[id] = {
         deferred: $q.defer(),
