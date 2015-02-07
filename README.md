@@ -322,6 +322,20 @@ Expands the drawer to screens full size.
 You may optionally pass an id string corresponding to the `snap-id` of one of
 your `snap-content`s.
 
+#### `snapRemote.enable([snapId])`
+
+Enables sliding events after disabling.
+
+You may optionally pass an id string corresponding to the `snap-id` of one of
+your `snap-content`s.
+
+#### `snapRemote.disable([snapId])`
+
+Disables sliding events.
+
+You may optionally pass an id string corresponding to the `snap-id` of one of
+your `snap-content`s.
+
 ### SnapConstructor
 
 An injectable copy of `window.Snap`. This is also available as a provider if you

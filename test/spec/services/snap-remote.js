@@ -41,6 +41,14 @@ describe('Service: snapRemote', function() {
       expect(snapRemote.expand).toEqual(jasmine.any(Function));
     });
 
+    it('should have an enable method', function() {
+      expect(snapRemote.enable).toEqual(jasmine.any(Function));
+    });
+
+    it('should have an disable method', function() {
+      expect(snapRemote.disable).toEqual(jasmine.any(Function));
+    });
+
     it('should have a global options attribute', function() {
       expect(snapRemote.globalOptions).toBeDefined();
     });
@@ -127,6 +135,36 @@ describe('Service: snapRemote', function() {
         $rootScope.$apply();
 
         expect(snapperMock.expand).toHaveBeenCalled();
+      }));
+    });
+
+    describe('enable', function() {
+      it('should delegate to the snapper instance enable method', inject(function($rootScope) {
+        var snapperMock = {
+          enable: angular.noop
+        };
+
+        spyOn(snapperMock, 'enable');
+        snapRemote.enable();
+        snapRemote.register(snapperMock);
+        $rootScope.$apply();
+
+        expect(snapperMock.enable).toHaveBeenCalled();
+      }));
+    });
+
+    describe('disable', function() {
+      it('should delegate to the snapper instance disable method', inject(function($rootScope) {
+        var snapperMock = {
+          disable: angular.noop
+        };
+
+        spyOn(snapperMock, 'disable');
+        snapRemote.disable();
+        snapRemote.register(snapperMock);
+        $rootScope.$apply();
+
+        expect(snapperMock.disable).toHaveBeenCalled();
       }));
     });
 
