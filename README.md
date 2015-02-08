@@ -397,6 +397,7 @@ when using Snap.js without Angular Snap.
 
 ## Changelog
 
+- v1.8.0 2015-01-08 Add `enable` and `disable` methods to `snapRemote`
 - v1.7.0 2014-12-30 Add snap-opt-% attrs for more declarative syntax
 
 
