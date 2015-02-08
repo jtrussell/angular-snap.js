@@ -339,7 +339,7 @@ your `snap-content`s.
 ### SnapConstructor
 
 An injectable copy of `window.Snap`. This is also available as a provider if you
-want to provide you own Snap construtor, users pulling in Snap.js with a module
+want to provide your own Snap construtor, users pulling in Snap.js with a module
 loader might find this useful.
 
 ```
