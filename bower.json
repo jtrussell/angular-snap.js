@@ -1,6 +1,6 @@
 {
   "name": "angular-snap-dev",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "dependencies": {},
   "devDependencies": {
     "snapjs": "~1.9",
