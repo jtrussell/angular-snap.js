@@ -395,6 +395,13 @@ when using Snap.js without Angular Snap.
 - [jsbin template: Snap.js **without** Angular Snap](http://jsbin.com/gist/4437a9764fe0bec3c264?html,js,output)
 
 
+## Contributing
+
+Please read
+[contributing.md](https://github.com/jtrussell/angular-snap.js/blob/master/CONTRIBUTING.md)
+before contributing.
+
+
 ## Changelog
 
 - v1.8.0 2015-01-08 Add `enable` and `disable` methods to `snapRemote`
