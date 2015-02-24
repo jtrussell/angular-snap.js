@@ -125,6 +125,35 @@ module.exports = function(grunt) {
       }
     },
 
+    npm: {
+      dist: {
+        dest: 'dist/package.json',
+        contents: [
+          '{',
+          '  "name": "angular-snap",',
+          '  "version": "<%= pkg.version %>",',
+          '  "authoer": "jtrussell",',
+          '  "license": "MIT",',
+          '  "repository": {',
+          '    "type": "git",',
+          '    "url": "https://github.com/jtrussell/angular-snap.js/issues"',
+          '  },',
+          '  "scripts": {',
+          '    "test": "grunt test"',
+          '  },',
+          '  "bugs": "https://github.com/jtrussell/angular-snap.js/issues",',
+          '  "main": [',
+          '    "angular-snap.js",',
+          '    "angular-snap.css"',
+          '  ],',
+          '  "dependencies": {',
+          '    "angular": "~1.2"',
+          '  }',
+          '}'
+        ].join('\n')
+      }
+    },
+
     connect: {
       examples: {
         options: {
@@ -147,7 +176,12 @@ module.exports = function(grunt) {
     .filterDev('grunt-*')
     .forEach(grunt.loadNpmTasks);
 
-  grunt.registerMultiTask('bower', 'Write out a bower.json file for distribution', function() {
+  grunt.registerMultiTask('bower', 'Write out a bower.json file for distribution via bower', function() {
+    grunt.file.write(this.data.dest, this.data.contents);
+    grunt.log.writeln('File "' + this.data.dest + '" created.');
+  });
+
+  grunt.registerMultiTask('npm', 'Write out a package.json file for distribution via npm', function() {
     grunt.file.write(this.data.dest, this.data.contents);
     grunt.log.writeln('File "' + this.data.dest + '" created.');
   });
@@ -177,7 +211,8 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'copy',
-    'bower'
+    'bower',
+    'npm'
   ]);
 
   grunt.registerTask('default', [
