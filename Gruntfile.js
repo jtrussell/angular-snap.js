@@ -132,7 +132,7 @@ module.exports = function(grunt) {
           '{',
           '  "name": "angular-snap",',
           '  "version": "<%= pkg.version %>",',
-          '  "authoer": "jtrussell",',
+          '  "author": "jtrussell",',
           '  "license": "MIT",',
           '  "repository": {',
           '    "type": "git",',
