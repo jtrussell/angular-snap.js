@@ -109,6 +109,8 @@ module.exports = function(grunt) {
           '{',
           '  "name": "angular-snap",',
           '  "version": "<%= pkg.version %>",',
+          '  "author": "jtrussell",',
+          '  "license": "MIT",',
           '  "main": [',
           '    "angular-snap.js",',
           '    "angular-snap.css"',
