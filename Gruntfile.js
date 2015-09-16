@@ -119,7 +119,7 @@ module.exports = function(grunt) {
           '    "README.md"',
           '  ],',
           '  "dependencies": {',
-          '    "angular": "~1.2",',
+          '    "angular": "1.4.x || 1.2.x",',
           '    "snapjs": "~1.9"',
           '  }',
           '}'
@@ -146,7 +146,7 @@ module.exports = function(grunt) {
           '  "bugs": "https://github.com/jtrussell/angular-snap.js/issues",',
           '  "main": "angular-snap.js",',
           '  "dependencies": {',
-          '    "angular": "~1.2"',
+          '    "angular": "1.4.x || 1.2.x"',
           '  }',
           '}'
         ].join('\n')
