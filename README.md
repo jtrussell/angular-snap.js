@@ -339,8 +339,8 @@ your `snap-content`s.
 ### SnapConstructor
 
 An injectable copy of `window.Snap`. This is also available as a provider if you
-want to provide your own Snap construtor, users pulling in Snap.js with a module
-loader might find this useful.
+want to provide your own Snap constructor, users pulling in Snap.js with a
+module loader might find this useful.
 
 ```
 var myApp = angular.module('myApp', ['snap']);
