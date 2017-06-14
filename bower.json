@@ -7,9 +7,9 @@
   "dependencies": {},
   "devDependencies": {
     "snapjs": "~1.9",
-    "angular": "~1.2",
-    "angular-scenario": "~1.2",
-    "angular-mocks": "~1.2",
-    "angular-route": "~1.2"
+    "angular": "~1.5",
+    "angular-scenario": "~1.5",
+    "angular-mocks": "~1.5",
+    "angular-route": "~1.5"
   }
 }
